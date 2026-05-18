@@ -22,9 +22,11 @@ _Captured 2026-05-18 from the live WordPress site._
   Redirection-for-CF7 (forms), Redirection + Rank Math (redirects), Easy WP
   SMTP (mail), UpdraftPlus (backups), Wordfence (security), Redis Object
   Cache, Converter for Media (WebP/AVIF).
-- **Pipedrive CRM** is in use via the "LeadBooster Chatbot by Pipedrive"
-  plugin — the chat captures visitors as Pipedrive deals. (Contact-form
-  leads still go to email; the chatbot is a separate channel.)
+- **Pipedrive LeadBooster** chatbot plugin is installed and activated in
+  WordPress (and GTM has Pipedrive chat tags), but the chat widget does
+  **not render on the live site** — no Pipedrive scripts load. The
+  integration appears dormant; treat Pipedrive as not a live channel unless
+  the team confirms otherwise.
 - Redirects: see [redirects.md](redirects.md). Forms: see [forms.md](forms.md).
 
 ## Analytics & marketing tech
