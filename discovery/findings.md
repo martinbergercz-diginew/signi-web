@@ -15,9 +15,8 @@ _Captured 2026-05-18 from the live WordPress site._
 - **Google Tag Manager** — container `GTM-WP6ZVZF`.
 - **Leady** — B2B visitor-identification tool. Sales-relevant; keep.
 - **LinkedIn** tag detected.
-- **No cookie-consent tool** found in the static HTML. A GA4 "Consent
-  settings" page exists in Admin (Consent Mode); the actual cookie banner
-  still needs locating (likely fired from GTM). EU/GDPR requirement.
+- **Cookie consent: Cookiebot** — fired via GTM (a "Cookiebot CMP" tag),
+  with Consent Mode wired through the container. The new site keeps it.
 
 ### Google Analytics (GA4) — checked 2026-05-18
 
@@ -60,8 +59,47 @@ scope** — and its analytics must not be disturbed by the migration.
   shares this GA property. Confirm via GTM whether the app uses the same
   container.
 - The migration is a chance to retire ~15 dead key events.
-- **Still needed:** GTM container access to see exactly how `generate_lead`
-  (and the `website_*` events) are triggered.
+
+### Google Tag Manager — checked 2026-05-18
+
+The marketing site uses container **`GTM-WP6ZVZF`** (account "Signi.com").
+There is also a **server-side container** (`GTM-KS3GQTW`) — the GA4 server
+tag routes through it. Other containers (`GTM-NV2B3DH`, `GTM-5JTJZ24`)
+belong to the app / other properties.
+
+`GTM-WP6ZVZF` is large and aging — **66 tags**, live version 54 (published 4
+months ago), flagged "Container quality: Needs Attention". It fires a wide
+stack of tools:
+
+- Analytics: GA4 (server-side routed), Hotjar, Microsoft Clarity, Smartlook
+- Ads: Google Ads, Facebook Pixel, Adform, Sklik (Seznam), LinkedIn Insight
+- Lead/B2B: Leady, Leadfeeder
+- Other: **Cookiebot** (consent), Beamer, Ecomail pixel, **Pipedrive chat**
+  widget (cs/en/hu/web)
+
+**Form-conversion tracking depends entirely on Contact Form 7.** A custom
+"cHTML - CF7 listener" tag pushes `dataLayer` events on form submit, which
+fire conversions across **five ad platforms**. The relevant events/triggers:
+
+- `cf7submission` (+ "kontakt" and "podpis" variants) → GA4, Google Ads
+- `odeslat_poptavku` → GA4, Google Ads, Facebook, Adform
+- `form_start` → Facebook, Adform
+- `form_poptavka`, `form_kontakt - sent` → Facebook, Sklik, Google Ads
+- `cf7 submit hr dokumenty` → GA4, Google Ads
+
+**Migration implication — highest-risk item.** The safe path is to keep
+`GTM-WP6ZVZF` unchanged, embed it on the new site, and **reproduce these
+exact `dataLayer` pushes** on the custom form's submit/success step.
+Replacing Contact Form 7 without replicating its `dataLayer` events breaks
+conversion tracking on all five ad platforms at once.
+
+**Notes:**
+
+- `generate_lead` (the one live GA4 key event) has no distinctly-named tag —
+  it is likely the event name set inside a GA4 form tag, or fired
+  server-side. Confirm exact origin when building Phase 7.
+- The Pipedrive chat widget is present on-site; the contact *form* leads go
+  to email (per Martin), but the chat is a separate Pipedrive channel.
 
 ## SEO
 
