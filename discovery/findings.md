@@ -37,11 +37,28 @@ _Captured 2026-05-18 from the live WordPress site._
   `koupil_předplatné`, etc.) show "No stream data detected" — the conversion
   configuration is largely stale legacy.
 
+### GA4 property is shared with the product app
+
+Top pages by views (28 days) are dominated by the **Signi product
+application**, not the marketing site: `/login` (155K views), `/signing/`,
+`/account/phone`, `/dashboard/workspace/.../documents`, `/register`. The
+marketing homepage `/` ranks only #2 (31K). So the GA4 property
+"Signi.com - Web - GA4" tracks **both** the marketing website and the app —
+the headline traffic numbers above are app-dominated, and real
+marketing-site traffic is a fraction of them.
+
+**Scope:** the migration replaces only the marketing/content website (the
+138 WordPress pages + blog). The product application is separate and **out of
+scope** — and its analytics must not be disturbed by the migration.
+
 **Migration implications:**
 
 - The one live conversion that **must survive** the Contact Form 7 → custom
   form swap is **`generate_lead`**. Its GTM trigger / `dataLayer` push must be
   replicated on the new form's success/thank-you step.
+- The marketing-site rebuild must not break the **app's** tracking, which
+  shares this GA property. Confirm via GTM whether the app uses the same
+  container.
 - The migration is a chance to retire ~15 dead key events.
 - **Still needed:** GTM container access to see exactly how `generate_lead`
   (and the `website_*` events) are triggered.
