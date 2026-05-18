@@ -1,0 +1,336 @@
+:root {
+  --purple: #6b2fb3;
+  --purple-dark: #551f95;
+  --ink: #1c1c28;
+  --muted: #6b6b7b;
+  --border: #e3e3ec;
+  --bg: #f6f6fa;
+  --danger: #c0392b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+a {
+  color: var(--purple);
+}
+
+.loading {
+  padding: 48px;
+  color: var(--muted);
+}
+
+/* Login -------------------------------------------------------------- */
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.login-box {
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-box h1 {
+  margin: 0 0 8px;
+  color: var(--purple);
+  text-align: center;
+}
+
+/* App shell ---------------------------------------------------------- */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: var(--ink);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 18px;
+  padding: 0 20px 20px;
+  color: #fff;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sidebar nav a {
+  color: #c9c9d6;
+  text-decoration: none;
+  padding: 11px 20px;
+  font-size: 14px;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.sidebar nav a.active {
+  background: var(--purple);
+  color: #fff;
+}
+
+.sidebar-user {
+  padding: 16px 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-user span {
+  color: #c9c9d6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar-user button {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  padding: 32px 40px;
+  max-width: 960px;
+}
+
+/* Common ------------------------------------------------------------- */
+.page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+.btn {
+  background: var(--purple);
+  color: #fff;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 7px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: var(--purple-dark);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.link,
+.link-danger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 6px;
+}
+
+.link {
+  color: var(--purple);
+}
+
+.link-danger {
+  color: var(--danger);
+}
+
+.error {
+  background: #fdecea;
+  color: var(--danger);
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input,
+select {
+  font: inherit;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.row label {
+  flex: 1;
+  min-width: 140px;
+}
+
+/* Table -------------------------------------------------------------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.table th {
+  background: #fafafd;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.table tr.unread td {
+  font-weight: 600;
+}
+
+/* Card / form -------------------------------------------------------- */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 24px;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-top: 14px;
+}
+
+.check {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.payload {
+  white-space: pre-wrap;
+  font-size: 13px;
+}
+
+/* Rich text editor --------------------------------------------------- */
+.richtext {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  margin-top: 6px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.tb-btn {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 5px 9px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.tb-btn.active {
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple);
+}
+
+.editor-content .ProseMirror {
+  padding: 14px;
+  min-height: 240px;
+  outline: none;
+}
+
+.editor-content .ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-field .thumb {
+  display: block;
+  max-width: 240px;
+  border-radius: 6px;
+  margin: 6px 0;
+}
