@@ -10,6 +10,13 @@ CREATE TABLE IF NOT EXISTS users (
   updated_at    TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+CREATE TABLE IF NOT EXISTS sessions (
+  id         TEXT PRIMARY KEY,                       -- random token, stored in the cookie
+  user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  expires_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS articles (
   id                INTEGER PRIMARY KEY AUTOINCREMENT,
   language          TEXT NOT NULL DEFAULT 'cs' CHECK (language IN ('cs', 'en', 'sk', 'hu')),
@@ -34,5 +41,6 @@ CREATE TABLE IF NOT EXISTS submissions (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+CREATE INDEX IF NOT EXISTS idx_sessions_user       ON sessions (user_id);
 CREATE INDEX IF NOT EXISTS idx_articles_status_lang ON articles (status, language);
 CREATE INDEX IF NOT EXISTS idx_submissions_created  ON submissions (created_at);
