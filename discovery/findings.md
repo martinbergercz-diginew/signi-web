@@ -10,6 +10,23 @@ _Captured 2026-05-18 from the live WordPress site._
 - curl could not verify the TLS chain — the live origin may serve an
   incomplete certificate chain. Caddy resolves this automatically.
 
+### WordPress internals (wp-admin, 2026-05-18)
+
+- WordPress 6.9.x, **Classic Editor** — content is plain HTML, not Gutenberg
+  blocks (simpler to migrate).
+- **Polylang** is the multilingual plugin (cs/en/sk/hu) — translations are
+  linked posts.
+- **ACF PRO** — pages use Advanced Custom Fields; content export must
+  include ACF data.
+- 21 plugins. Notable: Rank Math (SEO), Contact Form 7 + Dynamic Text +
+  Redirection-for-CF7 (forms), Redirection + Rank Math (redirects), Easy WP
+  SMTP (mail), UpdraftPlus (backups), Wordfence (security), Redis Object
+  Cache, Converter for Media (WebP/AVIF).
+- **Pipedrive CRM** is in use via the "LeadBooster Chatbot by Pipedrive"
+  plugin — the chat captures visitors as Pipedrive deals. (Contact-form
+  leads still go to email; the chatbot is a separate channel.)
+- Redirects: see [redirects.md](redirects.md). Forms: see [forms.md](forms.md).
+
 ## Analytics & marketing tech
 
 - **Google Tag Manager** — container `GTM-WP6ZVZF`.
