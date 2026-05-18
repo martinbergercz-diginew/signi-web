@@ -7,8 +7,11 @@ _Captured 2026-05-18 from the live WordPress site._
 - WordPress, custom theme `signi`.
 - Apache/2.4.58 (Ubuntu). No CDN.
 - `wp-json` REST API exposed — usable for content export.
-- curl could not verify the TLS chain — the live origin may serve an
-  incomplete certificate chain. Caddy resolves this automatically.
+- **TLS chain problem on the live origin.** `curl` could not verify the
+  certificate, and Chrome intermittently shows a privacy/SSL error page for
+  signi.com — so some real visitors likely hit SSL warnings too. The origin
+  appears to serve an incomplete or unstable certificate chain. Caddy on the
+  new setup resolves this automatically.
 
 ### WordPress internals (wp-admin, 2026-05-18)
 
