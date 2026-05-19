@@ -5,14 +5,15 @@ import { mkdirSync } from 'node:fs';
 import Fastify from 'fastify';
 import articleRoutes from './routes/articles.js';
 import authRoutes from './routes/auth.js';
+import blogRoutes from './routes/blog.js';
 import submissionRoutes from './routes/submissions.js';
 import uploadRoutes, { uploadDir } from './routes/uploads.js';
 import userRoutes from './routes/users.js';
 
-// The CMS application: auth, articles, users, submissions and image uploads.
-// The admin panel UI and blog SSR are added in Phases 4-6.
+// The CMS application: auth, articles, users, submissions, image uploads and
+// the server-rendered public blog.
 export async function buildApp() {
-  const app = Fastify({ logger: true });
+  const app = Fastify({ logger: true, ignoreTrailingSlash: true });
 
   mkdirSync(uploadDir, { recursive: true });
 
@@ -31,6 +32,7 @@ export async function buildApp() {
   await app.register(userRoutes);
   await app.register(submissionRoutes);
   await app.register(uploadRoutes);
+  await app.register(blogRoutes);
 
   return app;
 }

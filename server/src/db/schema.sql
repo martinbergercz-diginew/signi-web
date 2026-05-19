@@ -23,7 +23,9 @@ CREATE TABLE IF NOT EXISTS articles (
   slug              TEXT NOT NULL,
   title             TEXT NOT NULL,
   main_image        TEXT,
+  perex             TEXT NOT NULL DEFAULT '',          -- short summary for listings / RSS
   content_html      TEXT NOT NULL DEFAULT '',
+  category          TEXT,                              -- category slug, see lib/categories.js
   status            TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
   translation_group TEXT,                            -- links the same article across languages
   author_id         INTEGER REFERENCES users(id),

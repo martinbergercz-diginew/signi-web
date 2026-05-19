@@ -38,16 +38,18 @@ export default async function articleRoutes(app) {
     const info = db
       .prepare(
         `INSERT INTO articles
-           (language, slug, title, main_image, content_html, status, translation_group, author_id, published_at)
+           (language, slug, title, main_image, perex, content_html, category, status, translation_group, author_id, published_at)
          VALUES
-           (@language, @slug, @title, @main_image, @content_html, @status, @translation_group, @author_id, @published_at)`,
+           (@language, @slug, @title, @main_image, @perex, @content_html, @category, @status, @translation_group, @author_id, @published_at)`,
       )
       .run({
         language: b.language,
         slug: b.slug,
         title: b.title,
         main_image: b.main_image ?? null,
+        perex: b.perex ?? '',
         content_html: b.content_html ?? '',
+        category: b.category ?? null,
         status,
         translation_group: b.translation_group ?? null,
         author_id: request.user.id,
@@ -70,7 +72,8 @@ export default async function articleRoutes(app) {
     db.prepare(
       `UPDATE articles SET
          language = @language, slug = @slug, title = @title, main_image = @main_image,
-         content_html = @content_html, status = @status, translation_group = @translation_group,
+         perex = @perex, content_html = @content_html, category = @category,
+         status = @status, translation_group = @translation_group,
          updated_at = datetime('now'), published_at = @published_at
        WHERE id = @id`,
     ).run({
@@ -79,7 +82,9 @@ export default async function articleRoutes(app) {
       slug: b.slug ?? existing.slug,
       title: b.title ?? existing.title,
       main_image: b.main_image ?? existing.main_image,
+      perex: b.perex ?? existing.perex,
       content_html: b.content_html ?? existing.content_html,
+      category: b.category ?? existing.category,
       status,
       translation_group: b.translation_group ?? existing.translation_group,
       published_at: publishedAt,
