@@ -1,0 +1,139 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const reasons = [
+  ['Sme slobodná firma', 'To ale neznamená, že si každý robí, čo chce. Neobmedzujeme sa zbytočnými pravidlami a kontrolami. Každý ale presne vie, akú má úlohu a kedy ju má splniť.'],
+  ['Jednáme a hovoríme na rovinu', 'Na priateľskom prostredí a dobrých vzťahoch si zakladáme. Ale keď sa niečo nepodarí alebo nás niečo štve, proste si to povieme.'],
+  ['Spojuje nás nadšenie pre rovnakú vec', 'Digitalizácia firemných procesov spojených s elektronickým podpisom je naša misia. Ideme tou cestou spoločne, lákajú nás inovácie a nebojíme sa riskovať.'],
+  ['Korporátne tančeky nevedieme', 'U nás sa veci dejú rýchlo, dobrý nápad znamená obvykle svižnú realizáciu. Učíme firmy, ako zefektívniť procesy a s každou inováciou začíname najskôr u seba.'],
+  ['Expandujeme na zahraničné trhy', 'Keď digitalizáciu, tak pre všetkých. Doma už to máme zvládnuté, každý mesiac sa k Signi pripájajú ďalšie firmy. A tak mierime za hranice.'],
+];
+
+const benefits = [
+  ['Neobmedzená dovolenka', 'Veríme ti. Aj tomu, že zvládneš svoje úlohy splniť včas. Preto si môžeš vziať dovolenky, koľko chceš.'],
+  ['Homeoffice', 'U nás môžeš pracovať z domu, z kaviarne alebo na lavičke v parku. Neskúmame to, ale výsledok, ten chceme.'],
+  ['Peniaze naviac', 'Za dobrú prácu dobrá odmena. A za nadštandardné výsledky ešte lepšia. Pokiaľ sa ti darí prekonávať ciele, oceníme to.'],
+  ['Seniorní kolegovia', 'Každý u nás vie niečo a svoje know-how medzi sebou pravidelne zdieľame. Vždy sa nájde niekto, kto ti poradí.'],
+  ['Budget na vzdelanie', 'Záleží nám na tebe. Kľudne si vyber workshop alebo konferenciu a my ti zaplatíme vstupenku.'],
+  ['Nekonečná káva a čaj', 'Kofeín ti u nás kľudne môže kolovať celý deň, žiadny maximálny počet šálok ti diktovať nebudeme.'],
+  ['Tímové akcie', 'Firemné raňajky alebo priateľské stretnutie nad dobrým jedlom po práci u nás už majú tradíciu.'],
+  ['Lekcie angličtiny a multisport karta', 'Zlepšiť si angličtinu sa hodí vždy. A v zdravom tele zdravý duch — pridáme ti aj multisport kartu.'],
+];
+
+const positions = [
+  ['Sales development representative', 'Česká republika — Praha'],
+  ['Sales konzultant', 'Česká republika — Praha'],
+];
+
+const hiring = [
+  ['Napíšeš nám', 'Vyplníš náš kontaktný formulár. Stačí, keď sa nám stručne predstavíš. A keď pridáš CV alebo odkaz na svoj LinkedIn, bude naše HR šťastné.'],
+  ['Tešíš sa na odpoveď', 'Je nám jasné, že to chceš hneď, ale nie vždy môžeme odpovedať obratom. Do týždňa sa ti určite ozveme.'],
+  ['Dohodneme si schôdzku', 'Zavoláme ti a spoločne nájdeme termín, kedy sa stretneme. Na formality nie sme, ale chceme ťa proste vidieť.'],
+  ['Stretneme sa', 'My ti povieme pár vecí o nás, ty nám zase o sebe. Uistíme sa vzájomne, že nám to spolu bude klapať.'],
+  ['Podpíšeme spolu zmluvu', 'Cez Signi samozrejme. Aspoň si rovno vyskúšaš, aké praktické digitálne podpisovanie je.'],
+  ['Pridávaš sa k nám', 'Čaká ťa tvoj prvý pracovný deň. To už je ale iný príbeh. Začneš ho s nami písať?'],
+];
+---
+
+<Base
+  title="Kariéra | Signi"
+  description="Práve hľadáme posily do nášho Signi tímu. Pridajte sa k nám a pomôžte zbaviť svet papierových dokumentov. Kariéra v Signi."
+  lang="sk"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Kariéra</span>
+      <h1>Signi: Nová práca, nový štart</h1>
+      <p class="lead">
+        Pracuj s nami na budúcnosti bez papierových dokumentov. V Signi robíme,
+        čo nás baví — pomáhame firmám s digitalizáciou. Pridáš sa k nám?
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#pozicie">Otvorené pozície</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>V Signi robíme, čo nás baví</h2>
+        <p class="lead">
+          Z punkového startupu sme sa rozrástli na firmu s viac ako 30
+          zamestnancami a spolupracovníkmi. Ale začína nás byť málo, preto
+          hľadáme teba!
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {reasons.map((r) => (
+          <div class="card">
+            <h3>{r[0]}</h3>
+            <p>{r[1]}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>Na firemné benefity sme samozrejme nezabudli</h2>
+      </div>
+      <div class="grid grid--4">
+        {benefits.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pozicie">
+    <div class="container">
+      <div class="section__head">
+        <h2>Aktuálne otvorené pozície</h2>
+      </div>
+      <div class="grid grid--3">
+        {positions.map(([title, place]) => (
+          <div class="card">
+            <span class="eyebrow">{place}</span>
+            <h3>{title}</h3>
+            <p><a href="/sk/">Mám záujem</a></p>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:24px">
+        Momentálne nemáme voľnú pozíciu na Slovensku. Nenašli ste si miesto
+        presne pre seba? Kontaktujte nás — možno sa nám spoločne podarí niečo
+        vymyslieť.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <h2>Ako prebieha výberko</h2>
+      </div>
+      <div class="grid grid--3">
+        {hiring.map(([title, text], i) => (
+          <div class="card">
+            <div class="card__icon">{i + 1}</div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="sk"
+    title="Nenašli ste si pozíciu presne pre seba?"
+    text="Ozvite sa nám aj tak — schopných ľudí radi spoznáme."
+  />
+</Base>

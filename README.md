@@ -3,7 +3,7 @@
 The signi.com website — fast static marketing pages (Astro) plus a small custom
 CMS (Fastify + SQLite). Replaces the previous WordPress site.
 
-**Status:** Phase 4 — admin panel UI (login, articles + TipTap editor, users, form log).
+**Status:** Phase 5 — public site (Astro static marketing pages ×4 languages, GTM + consent).
 
 See [PLAN.md](PLAN.md) for the architecture, decisions, and migration phases.
 See [discovery/](discovery/) for the live-site audit and URL inventory.

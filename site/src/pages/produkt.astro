@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const capabilities = [
+  ['Elektronický podpis', 'Za elektronickým podpisem už nemusíte na poštu. U nás si vyberete přesně ten druh podpisu, který potřebujete. Všechny Signi podpisy splňují vysoké nároky na bezpečnost a jsou v souladu s eIDAS.'],
+  ['Vzdálená identifikace', 'Existuje několik způsobů, jak na dálku ověřit totožnost vašich obchodních i pracovních partnerů. Umožňujeme ověření přes BankID i Signi identifikaci.'],
+  ['Schvalovací a podpisové workflow', 'Nekonečné schvalovací kolečko je minulost. Schvalovací procesy si nastavíte automaticky tak, jak potřebujete — podpisy i termíny hlídá systém za vás.'],
+  ['Dlouhodobá elektronická archivace', 'Podepsané dokumenty máte povinnost archivovat 3 až 30 let. Digitální archivace Signi vyhovuje všem právním normám a snižuje vaše náklady na tisk i skladovací prostory.'],
+  ['Hromadná rozesílka interních dokumentů', 'Interní administrativy bývá obvykle mnoho — dodatky, směrnice, prohlášení. Funkce Hromadná rozesílka odešle podobná hromadná oznámení za vás.'],
+  ['Snadná integrace s firemními systémy', 'Signi jsme navrhli jako variabilní komponentu, kterou lze v řádech dnů integrovat do CRM, DMS nebo ERP systémů a firemních procesů.'],
+];
+
+const why = [
+  ['Špičková technická a zákaznická podpora', 'Rádi vám kdykoli podáme pomocnou ruku — ať už potřebujete proškolit své lidi, nebo jen řešíte běžné provozní potíže.'],
+  ['Bezpečnost na prvním místě', 'Vaše data jsou u nás v bezpečí. Procesy monitorujeme 24/7 a pravidelně provádíme penetrační a zátěžové testy. Signi splňuje ty nejpřísnější standardy.'],
+  ['Intuitivní uživatelské prostředí', 'Chtěli jsme, aby používání Signi bylo co nejjednodušší. Uživatelské rozhraní jsme proto hodně ladili — ovládání si lidé osvojí velmi rychle.'],
+  ['Použitelnost na různé typy dokumentů', 'Vyberete si typ dokumentu a proces, kterým má projít až k podpisu, a my to pro vás připravíme přesně podle vašich potřeb.'],
+  ['Silné finanční a provozní zázemí', 'Jsme součástí silné finanční instituce. Stojí za námi Česká spořitelna, náš strategický partner a akcionář.'],
+  ['Láska na první podepsání', 'Proč si klienti vybírají pro digitalizaci podepisování právě Signi? Na výhodách se shodují znovu a znovu.'],
+];
+---
+
+<Base
+  title="Bezpečné elektronické podepisování | Signi"
+  description="Vyzkoušejte bezpečné elektronické podepisování rychle a bez obav. Díky Signi digitalizujete firemní papírování a podepíšete 100 % vašich dokumentů."
+  lang="cs"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Produkt</span>
+      <h1>Bezpečné elektronické podepisování rychle a bez papírů</h1>
+      <p class="lead">
+        Díky Signi digitalizujete firemní papírování a podepíšete 100 % vašich
+        dokumentů — vše elektronicky a v jedné aplikaci.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Vyzkoušet zdarma</a>
+        <a class="btn btn--ghost" href="/odeslat-poptavku/">Domluvit prezentaci</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Co Signi umí</span>
+        <h2>Vše pro digitální podepisování v jedné aplikaci</h2>
+      </div>
+      <div class="grid grid--3">
+        {capabilities.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Proč Signi</span>
+        <h2>Láska na první podepsání</h2>
+      </div>
+      <div class="grid grid--3">
+        {why.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="cs"
+    title="Vyzkoušejte si bezpečné elektronické podepisování"
+    text="Registrace je zdarma a nezávazná — první dokumenty podepíšete během pár minut."
+  />
+</Base>

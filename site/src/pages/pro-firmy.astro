@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const blocks = [
+  ['Digitální podepisování pro různé obory', 'Nezáleží na tom, v jakém segmentu se pohybujete. Firemní dokumenty můžete digitalizovat napříč obory — od automotive po zdravotnictví.'],
+  ['Jedna aplikace pro všechny vaše dokumenty', 'Vše snadno najdete a vyřídíte. Uživatelské prostředí je přehledné a intuitivní.'],
+  ['Integrace do vašeho systému během pár dnů', 'Díky hotovému API a konektorům pro různé typy CRM, DMS i ERP napojíme Signi snadno na systém, který ve firmě používáte. Netrvá to roky, ani dlouhé měsíce.'],
+  ['Onboarding bez zbytečných starostí', 'Přechod z papírových dokumentů na digitální je pro firmu velká změna. Společně nastavíme vaše firemní procesy tak, aby práce s dokumenty dávala smysl.'],
+  ['Špičkové zabezpečení vašich dat', 'Všechna příchozí i odchozí data šifrujeme a zabezpečujeme HTTPS certifikátem. Dokumenty chrání unikátní elektronická pečeť a podpisy se ihned logují.'],
+  ['Jsme lídr v elektronickém uzavírání dokumentů', 'Patříme mezi klíčové dodavatele digitalizačních řešení pro firmy, které chtějí zlevnit, usnadnit a zrychlit administrativu.'],
+];
+
+const cases = [
+  'QI a digitalizace výroby s podpisem od Signi',
+  'Digitální podepisování od Signi zefektivnilo administrativní procesy v Alza.cz',
+  'Reklamační proces v Zásilkovně i v celé Packeta Group probíhá díky Signi plně digitálně',
+];
+---
+
+<Base
+  title="První volba firem pro digitalizaci dokumentů | Signi"
+  description="Jak na firemní digitalizaci dokumentů? Všechny dokumenty jednoduše vytvoříte, schválíte a podepíšete v Signi. Vyzkoušejte flexibilní a rychlé řešení."
+  lang="cs"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Řešení pro firmy</span>
+      <h1>První volba firem pro digitalizaci dokumentů</h1>
+      <p class="lead">
+        Všechny dokumenty jednoduše vytvoříte, schválíte a podepíšete v Signi.
+        Flexibilní a rychlé řešení pro firmy napříč obory.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/odeslat-poptavku/">Domluvit prezentaci</a>
+        <a class="btn btn--ghost" href="https://app.signi.com/register">Vyzkoušet zdarma</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Proč firmy volí Signi</span>
+        <h2>Podepisujte digitálně, zbytek nechte na nás</h2>
+      </div>
+      <div class="grid grid--3">
+        {blocks.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Případové studie</span>
+        <h2>Inspirujte se firmami, které už digitalizovaly</h2>
+      </div>
+      <div class="grid grid--3">
+        {cases.map((title) => (
+          <div class="card"><h3>{title}</h3></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="cs"
+    title="Už jste jen krok od digitálního podepisování"
+    text="Nechte nám na sebe kontakt a v krátkém čase vás bude kontaktovat náš specialista."
+  />
+</Base>

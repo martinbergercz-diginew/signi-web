@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const types = [
+  {
+    name: 'Prostý elektronický podpis',
+    text: [
+      'Až 90 % dokumentů můžete podepsat tímto způsobem — objednávky, dodatky ke smlouvám, HR dokumenty a mnoho dalších. Prostý elektronický podpis je rychlý a jednoduchý.',
+      'Pro tento typ podepisování v Signi kombinujeme dvoufaktorové ověření přes SMS a podpis prstem, stylusem či na klávesnici. Zařídíme také propojení s BankID.',
+    ],
+  },
+  {
+    name: 'Zaručený elektronický podpis (AES)',
+    text: [
+      'Všude tam, kde předem neznáte identitu podepisujícího, využijete zaručený elektronický podpis. Doporučujeme jej například pro smluvní dokumenty nebo klientské smlouvy.',
+      'V Signi pro zaručený podpis využíváme BankID Sign. Totožnost podepisujícího díky tomu pohodlně a bezpečně ověříte pomocí bankovní identity.',
+    ],
+  },
+  {
+    name: 'Kvalifikovaný elektronický podpis (QES)',
+    text: [
+      'Pracujete ve státní správě, ve veřejné instituci nebo pro velkou korporaci? Kvalifikovaný elektronický podpis je v těchto případech sázka na jistotu.',
+      'Kvalifikovaný certifikát vám v Signi sice nevystavíme, ale pomůžeme vám najít certifikační autoritu, která je pro vás lokálně nejvhodnější.',
+    ],
+  },
+];
+
+const faq = [
+  ['Je elektronické podepisování legální?', 'Více než 90 zemí na celém světě přijalo právní předpisy, které potvrzují legálnost elektronických podpisů. V Evropské unii se elektronické podpisy řídí jednotným nařízením eIDAS.'],
+  ['Je elektronické podepisování bezpečné?', 'Signi musí splňovat nejvyšší bezpečnostní standardy. Podepisování probíhá v kontrolovaném prostředí webové aplikace, vzniká podrobná auditní stopa a dokumenty zamykáme kvalifikovanou elektronickou pečetí i časovým razítkem.'],
+  ['Co je to vzdálená identifikace?', 'Díky vzdálené identifikaci vždy jistě víte, s kým jednáte, a získáte ověřené osobní údaje. Signi identifikace vyžaduje doklady totožnosti, ověření živosti selfie nebo mikroplatbu; identifikace přes BankID pracuje s již ověřenou identitou.'],
+];
+---
+
+<Base
+  title="Druhy elektronických podpisů | Signi"
+  description="Existují 3 úrovně elektronického podpisu podle nařízení eIDAS. Poradíme vám, jak si vybrat ten správný pro vaše dokumenty."
+  lang="cs"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Elektronické podpisy</span>
+      <h1>Druhy elektronických podpisů</h1>
+      <p class="lead">
+        Existují 3 úrovně elektronického podpisu, které odpovídají české
+        i evropské legislativě — podle nařízení EU 910/2014, zkráceně eIDAS.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>Jak si vybrat elektronický podpis</h2>
+        <p>
+          Zavedení elektronického podpisu představuje první krok k digitalizaci
+          firmy. Nedejte se odradit tím, že se smlouvy odjakživa podepisovaly
+          osobně — ve skutečnosti je to mnohem jednodušší.
+        </p>
+      </div>
+      <div class="stack">
+        {types.map((t) => (
+          <div class="card">
+            <h3>{t.name}</h3>
+            {t.text.map((p) => <p>{p}</p>)}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Mohlo by vás zajímat</h2>
+      </div>
+      <div class="grid grid--3">
+        {faq.map(([q, a]) => (
+          <div class="card">
+            <h3>{q}</h3>
+            <p>{a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner lang="cs" title="Nevíte, který podpis je pro vás ten pravý? Poradíme vám" />
+</Base>

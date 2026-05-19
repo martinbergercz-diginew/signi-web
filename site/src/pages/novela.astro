@@ -1,0 +1,105 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const changes = [
+  ['Způsob doručování pracovněprávních dokumentů', 'Dosavadní úprava zákoníku práce v praxi znemožňovala jejich elektronické doručování. Novela toto odstranila a nově máte možnost veškeré HR dokumenty elektronicky doručit.'],
+  ['Elektronické podepisování dokumentů', 'Ze strany zaměstnance není pro žádný HR dokument vyžadován kvalifikovaný elektronický podpis, který byl doposud podmínkou. Nově postačí prostý elektronický podpis.'],
+  ['Uznatelnost elektronického právního jednání', 'Jednou z největších překážek digitalizace HR byla nejistota stran platnosti elektronického právního jednání a nejednotnost výkladu jednotlivými úřady. To novela vyjasnila.'],
+];
+
+const faq = [
+  ['Co jsou tzv. důležité pracovněprávní písemnosti?', 'Dle § 335 odst. 1 zákoníku práce (ve znění po novele) jsou těmito důležitými písemnostmi mzdové/platové výměry, tzv. vytýkací dopisy, odvolání/odstoupení z vedoucího pracovního místa a jednostranná rozvázání pracovního poměru (výpovědi, okamžitá zrušení, zrušení ve zkušební době).'],
+  ['Kdy potřebuji souhlas s elektronickou komunikací?', 'Pro obecnou komunikaci se zaměstnancem e-mailem žádný výslovný souhlas nepotřebujete — postačí, že vám zaměstnanec svou adresu sdělí. Souhlas vyžadují právní předpisy jediný případ: e-mailové doručování důležitých pracovněprávních písemností dle § 335 odst. 1.'],
+  ['Jak získám od zaměstnance souhlas s elektronickou komunikací?', 'Zákoník práce požaduje souhlas v samostatném písemném prohlášení s poučením o podmínkách doručování. Tento souhlas ale nepatří mezi důležité písemnosti — lze jej zaslat e-mailem a podepsat prostým elektronickým podpisem, i distančně.'],
+  ['V jakých případech musím doručovat na soukromou e-mailovou adresu?', 'Pokud jde o tzv. významný pracovněprávní dokument. Ten musíte doručit na soukromou adresu zaměstnance, aby k němu neztratil přístup např. při zrušení firemního e-mailu.'],
+  ['Jaké dokumenty vyžadují kvalifikovaný podpis?', 'Dokumenty ze skupiny významných pracovněprávních písemností vyžadují ze strany zaměstnavatele uznávaný elektronický podpis založený na kvalifikovaném certifikátu. Ze strany zaměstnance vždy stačí prostý elektronický podpis.'],
+  ['Je možné všechny HR dokumenty podepisovat elektronicky?', 'Ano. 100 % HR dokumentů můžete podepsat se zaměstnancem elektronicky a ve většině případů jen prostým elektronickým podpisem. Pouze u významných pracovněprávních dokumentů je z vaší strany vyžadován zaručený elektronický podpis.'],
+  ['Jak je to s archivací dokumentů?', 'Po podpisu dokument v Signi opatříme elektronickou pečetí a kvalifikovaným časovým razítkem. Razítka je třeba pravidelně obnovovat — Signi archiv touto funkcí disponuje, archivaci tedy klidně nechte na nás.'],
+  ['Jakým způsobem máme začít?', 'Přechod na bezpapírové HR je proces. Doporučujeme začít postupně — zvolíte si jeden nebo dva typy dokumentů, jednu pobočku či omezenou skupinu zaměstnanců, a vše „odpilotujeme“.'],
+  ['Můžeme využít Signi, i když nemáme žádný HR systém?', 'Ano. Aplikace Signi v sobě zahrnuje většinu funkcí, které potřebujete — databázi zaměstnanců, vzory dokumentů, schvalovací scénáře, hromadné podepisování i dlouhodobou archivaci.'],
+];
+---
+
+<Base
+  title="Novela v HR | Signi"
+  description="Novela zákoníku práce umožňuje plnou digitalizaci HR dokumentů. Zjistěte, co to znamená pro majitele firem a personalisty, a jak na to se Signi."
+  lang="cs"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Novela zákoníku práce</span>
+      <h1>Konečně můžete digitalizovat celé HR</h1>
+      <p class="lead">
+        Právě schválená novela zákoníku práce obsahuje vše, co potřebujete pro
+        plnou digitalizaci vašich HR dokumentů.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/odeslat-poptavku/">Chci digitalizovat HR</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Co se mění</span>
+        <h2>Pozitivní změny pro personalisty i celé HR oddělení</h2>
+      </div>
+      <div class="grid grid--3">
+        {changes.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid grid--2">
+        <div class="card">
+          <h3>Můžete digitalizovat 100 % HR dokumentů</h3>
+          <p>
+            Kolikrát jste si v minulosti řekli, že se zbavíte papírování — a pak
+            zjistili, že to buď nejde, nebo vám chybí jistota. Novela tyto
+            překážky odstraňuje.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Pracovní smlouvu konečně uzavřete na dálku</h3>
+          <p>
+            Nejčastější požadavek HR manažerů je možnost uzavřít pracovní
+            smlouvu nebo dohodu o provedení práce na dálku. Díky novele to jde.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Na co se nás nejčastěji ptáte?</h2>
+        <p>Připraveno ve spolupráci s advokátní kanceláří PRK Partners.</p>
+      </div>
+      <div class="grid grid--2">
+        {faq.map(([q, a]) => (
+          <div class="card">
+            <h3>{q}</h3>
+            <p>{a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="cs"
+    title="Zefektivněte vaše HR procesy a převeďte 100 % podepisování do Signi"
+    text="Nechte nám na sebe kontakt a v krátkém čase vás bude kontaktovat náš specialista."
+  />
+</Base>

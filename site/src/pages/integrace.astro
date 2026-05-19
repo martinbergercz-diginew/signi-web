@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const integrations = [
+  'Prytanis', 'Scholasticus', 'Speybl', 'Cequence',
+  'SAP SuccessFactors', 'OKbase', 'Alveno', 'Plusco',
+  'MUNIPOLIS', 'Salesforce', 'SmartFP', 'Onboardee.io',
+  'BankID', 'JOBka.cz', 'Microsoft 365', 'Google Workspace',
+  'Make (dříve Integromat)', 'Pipedrive', 'Helios', 'KARAT',
+  'M-Files', 'eDoCat', 'Nugget', 'plusPortal',
+  'EGJE', 'RON Software', 'Target 2100', 'Wflow',
+];
+
+const faq = [
+  ['Jaký smysl má integrace s aplikací Signi?', 'Lidé i byznys se digitalizují a přechází do online světa. Největší hodnotu v takovém prostředí má kompletně automatizovaný obchodní proces. Proto má smysl vaši aplikaci propojit se Signi — a my vám v tom chceme maximálně pomoci.'],
+  ['Jaké jsou možnosti propojení?', 'S oblibou tvrdíme, že prakticky neomezené. Naši vývojáři aplikaci Signi neustále posouvají dále, aby společně vytvořili opravdu univerzální pracovní nástroj použitelný v libovolném odvětví.'],
+  ['Jak proces integrování vypadá?', 'To je individuální. Náš specialista přistupuje ke každému zákazníkovi s ohledem na jeho specifické potřeby. Pro lepší obrázek doporučujeme stránky podpory věnované integracím.'],
+];
+---
+
+<Base
+  title="Integrace elektronického podpisu | Signi"
+  description="Největší benefit pro firmu je plně automatizovaný firemní proces. Propojte vaši aplikaci se Signi. Integrace elektronického podpisu Signi je snadná."
+  lang="cs"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Integrace</span>
+      <h1>Pohodlná integrace se systémy, které už používáte</h1>
+      <p class="lead">
+        K propojení na vaše interní systémy nepotřebujeme dlouhé měsíce. Máme
+        hotové API i konektory pro CRM, DMS i ERP — integrujeme v řádu dnů až týdnů.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/odeslat-poptavku/">Ozvěte se nám</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Konektory</span>
+        <h2>Signi propojíme s vaším systémem</h2>
+      </div>
+      <div class="grid grid--4">
+        {integrations.map((name) => (
+          <div class="card" style="text-align:center">
+            <strong>{name}</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Potom by vás mohlo zajímat</h2>
+      </div>
+      <div class="grid grid--3">
+        {faq.map(([q, a]) => (
+          <div class="card">
+            <h3>{q}</h3>
+            <p>{a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="cs"
+    title="Chcete propojit Signi s vaší aplikací?"
+    text="Nechte nám na sebe kontakt a v krátkém čase vás bude kontaktovat náš specialista."
+  />
+</Base>

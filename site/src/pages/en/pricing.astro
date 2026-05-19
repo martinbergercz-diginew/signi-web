@@ -1,0 +1,136 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const tiers = [
+  {
+    name: 'Startup',
+    note: 'A good option for individuals and small teams.',
+    featured: false,
+    features: [
+      'Unlimited number of users and workspaces',
+      'Multilingual user interface',
+      'Upload and sign your own document',
+      'Detailed audit trail (checklist)',
+      'Document status overview',
+      'Document storage with search',
+    ],
+  },
+  {
+    name: 'Scaleup',
+    note: 'A great solution for fast-growing companies and startups.',
+    featured: true,
+    plus: 'What you get on top of Startup',
+    features: [
+      'Qualified electronic signature via BankID Sign',
+      'Predefined signing scenarios',
+      'Signing with a qualified certificate',
+      'Application and email branding',
+      'API including demo environment',
+    ],
+  },
+  {
+    name: 'Corporate',
+    note: 'A top choice for larger companies, larger teams, and larger paperwork.',
+    featured: false,
+    plus: 'What you get on top of Scaleup',
+    features: [
+      'Bulk operations (signing, deletion, etc.)',
+      'Fiction of delivery (legal presumption of receipt)',
+      'Signing roles and document attachments',
+      'SSO via Entra ID',
+    ],
+  },
+  {
+    name: 'Corporate Plus',
+    note: 'Specific solutions for robust companies and corporations.',
+    featured: false,
+    plus: 'Individual configuration',
+    features: [
+      'Identification with BankID and SSO',
+      'Advanced branding',
+      'On-premise solution tailored to you',
+    ],
+  },
+];
+
+const faq = [
+  ['Can I try Signi before I buy a subscription?', 'Yes. After you register, we give you 3 free documents to sign. These are not reduced-feature trial documents but absolutely full-featured — so you can see if Signi suits your needs before subscribing.'],
+  ['Will all signers need to have their own Signi account?', 'No. The recipients of your documents do not need an account to sign using Signi. Your document is sent via email and your counterparties can view it and complete signing without any registration.'],
+  ['Will my subscription automatically renew?', 'Yes, your subscription automatically renews until you let us know that you want to change or cancel your plan.'],
+  ['What happens to my documents if I cancel my subscription?', 'Nothing at all. Even after cancelling your subscription, you will always have access to them.'],
+];
+---
+
+<Base
+  title="Pricing for electronic signatures and more | Signi"
+  description="Fair prices for small teams, growing startups, and robust corporations. Choose the plan that matches your team size and document volume."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Pricing</span>
+      <h1>Fair prices for small teams, growing startups, and robust corporations</h1>
+      <p class="lead">
+        Choose the plan that matches the size of your team and the volume of
+        your documents. We’ll happily calculate a tailored price for you.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/en/request-demo/">Request a demo</a>
+        <a class="btn btn--ghost" href="https://app.signi.com/register">Try for free</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--4">
+        {tiers.map((tier) => (
+          <div class={tier.featured ? 'price-card price-card--featured' : 'price-card'}>
+            <h3>{tier.name}</h3>
+            <p style="color:var(--muted);font-size:.95rem">{tier.note}</p>
+            {tier.plus && <p style="font-weight:600;margin-top:8px">{tier.plus}:</p>}
+            <ul>
+              {tier.features.map((f) => <li>{f}</li>)}
+            </ul>
+            <a class={tier.featured ? 'btn btn--primary' : 'btn btn--ghost'} href="/en/request-demo/">
+              I’m interested
+            </a>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:24px">
+        Not sure which subscription is right for your situation? Need an
+        individual approach — identification with BankID, SSO, advanced branding
+        or an on-premise solution? <a href="/en/request-demo/">Get in touch</a> and
+        we’ll find the right fit.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">FAQ</span>
+        <h2>You might be interested in</h2>
+      </div>
+      <div class="grid grid--2">
+        {faq.map(([q, a]) => (
+          <div class="card">
+            <h3>{q}</h3>
+            <p>{a}</p>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:24px">
+        Didn’t find what you were looking for? Visit our
+        <a href="https://helpdesk.signi.com"> support page</a>.
+      </p>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="How to digitize your company documents? Feel free to do it today"
+  />
+</Base>

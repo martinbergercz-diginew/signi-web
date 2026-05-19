@@ -1,0 +1,130 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const highlights = [
+  ['75 % within 24 hours', '75 % of documents are signed within 24 hours of dispatch. Your team works quickly and efficiently — and you keep an overview of everything.'],
+  ['eIDAS compliant', 'Documents created with Signi are 100 % valid and binding thanks to Regulation 910/2014/EC (eIDAS) throughout the European Union.'],
+  ['No installation', 'Neither you nor any other signing party needs to install anything. All you need is an internet-connected smartphone, tablet, or computer.'],
+];
+
+const efficiency = [
+  'Any document adjustments can be handled, re-signed, and made binding with just a few clicks.',
+  'No printers, toner consumption, or wasted paper — nothing to physically send, print, scan, or archive.',
+  'Your documents are always at hand online, with a real-time overview of their status.',
+  'The Signi web application is highly intuitive.',
+  'No need to install anything.',
+  'All documents are legally binding.',
+];
+
+const howItWorks = [
+  'Prepare and internally approve a document.',
+  'Signi sends an SMS and/or email requesting signatures from all necessary parties.',
+  'The online document becomes available for third parties to sign.',
+  'Signed documents are stored in PDF for easy retrieval and review.',
+  'Signi sends automatic notifications when statuses change.',
+];
+---
+
+<Base
+  title="Sales | Signi"
+  description="Digitize sales documents with Signi. Sales people should be selling — not managing the administration and logistics of signatures."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Sales</span>
+      <h1>Digitize sales documents</h1>
+      <p class="lead">
+        Sales people should be selling, not wasting their time preparing
+        documents and managing the administration and logistics of signatures.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
+        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>Why sales teams choose Signi</h2>
+      </div>
+      <div class="grid grid--3">
+        {highlights.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>How will we increase efficiency at your company?</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Signed documents will be executed with Signi in minutes, not days. No
+          need to wait for physical delivery — you can solve everything with
+          your clients in real time.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {efficiency.map((text) => (
+          <div class="card"><p>{text}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>How does Signi work?</h2>
+      </div>
+      <div class="prose">
+        <p>
+          With Signi, you can send documents to be signed online by email or
+          physically signed onsite. Signi communicates with document management
+          systems, and your signed, stored documents can always be found in the
+          application — even if you terminate your subscription. You also
+          receive automatic notifications about signature statuses.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {howItWorks.map((text, i) => (
+          <div class="card">
+            <div class="card__icon">{i + 1}</div>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>Trusted by leading organizations</h2>
+      </div>
+      <div class="prose">
+        <p>
+          "The implementation of Signi has significantly streamlined our
+          administrative processes and saves us time that we can spend on
+          improving service to our customers." — Alza.cz
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="Still hesitating? Try Signi for free"
+    text="Leave us your contact details and our specialist will get back to you."
+  />
+</Base>

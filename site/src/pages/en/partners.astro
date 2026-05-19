@@ -1,0 +1,101 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const whyPartner = [
+  ['You will attract new customers', 'Almost every major company is tackling digitalization. It’s no longer the future, it is the present. Add Signi to your offering and see how many doors it opens for you.'],
+  ['You will expand your portfolio', 'The more comprehensive the product solution, the better. Save your clients time and money by showing them how to streamline tedious paperwork. They’ll appreciate it.'],
+  ['You will make more money', 'We don’t need to explain what sales commissions are — and we’re generous in that regard. We’ve fine-tuned Signi down to the last detail. It sells itself. Almost.'],
+];
+
+const levels = [
+  ['Business partner', 'Having Signi digital signing is a competitive advantage. Companies across all segments are going digital, so Signi is a great fit to complement your products or services. As a business partner, we provide maximum support — we train your team, give you product materials, and include you in our marketing activities.'],
+  ['Solution partner', 'Most companies’ strategic plans already include digitization. Electronic signatures that are part of CRM, DMS, or ERP systems are the new standard. Together, using our best practices, we find an optimal solution, prepare a plan, and integrate Signi into your application.'],
+  ['Affiliate partner', 'Sometimes you only need a few good contacts to do business — no in-depth product research, no tricky questions, no tenders. As an affiliate partner, you just recommend and connect us with a client. We do the rest, and you get an interesting commission.'],
+];
+
+const steps = [
+  ['Register', 'It only takes a few minutes to complete the registration form. Just hit Send and we’ll call you right away.'],
+  ['Sign', 'We agree on the terms and conditions and sign a contract. A few clicks in our app is all it takes.'],
+  ['Onboard', 'We’ve got everything you need to get started and enjoy a smooth ride. We give you our full support and trust.'],
+  ['Earn', 'We test each other on a pilot project, then it’s up to you whether you dive in headfirst or tread cautiously into collecting commissions.'],
+];
+---
+
+<Base
+  title="A partnership that will bring you new customers | Signi"
+  description="In almost every field, digital signing perfectly complements any product portfolio or custom software solution. Become a Signi partner."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Partners</span>
+      <h1>A partnership that will bring you new customers</h1>
+      <p class="lead">
+        In almost every field, digital signing perfectly complements any product
+        portfolio or custom software solution. Just mention it and see.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
+        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Why join</span>
+        <h2>Why become a Signi partner</h2>
+      </div>
+      <div class="grid grid--3">
+        {whyPartner.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Cooperation</span>
+        <h2>Choose your level of cooperation</h2>
+      </div>
+      <div class="grid grid--3">
+        {levels.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Getting started</span>
+        <h2>You can start right now</h2>
+      </div>
+      <div class="grid grid--4">
+        {steps.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="Connect your name with a successful product"
+    text="Electronic signatures speed up business processes — whether people are in the office or working from home."
+  />
+</Base>

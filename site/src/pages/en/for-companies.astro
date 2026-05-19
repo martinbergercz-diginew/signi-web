@@ -1,0 +1,88 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const oneApp = [
+  ['Easy to find and handle', 'Everything is easy to find and handle. The user interface is clear and intuitive.'],
+  ['No need to go anywhere', 'You never have to go anywhere. Remote identification and document signing are done directly in the app.'],
+  ['The right signature, fast', 'Choose the electronic signature appropriate to your given document. Sign in a matter of minutes.'],
+  ['Full document lifecycle', 'Have the entire document lifecycle under control — from creation to long-term archiving.'],
+];
+---
+
+<Base
+  title="The first choice of companies for document digitization | Signi"
+  description="Create, approve, and sign all your company documents in Signi. Our solution is flexible, open, and scalable."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">For companies</span>
+      <h1>The first choice of companies for document digitization</h1>
+      <p class="lead">
+        You can easily create, approve, and sign all your company documents in
+        Signi. Our solution is flexible, open, and scalable.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
+        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Any sector</span>
+        <h2>Digital signing for various fields</h2>
+        <p class="lead">
+          It doesn’t matter what segment you’re in — you can digitize company
+          documents across sectors, from automotive to healthcare. Digital
+          documents simplify your internal processes and save time and money.
+        </p>
+      </div>
+      <div class="grid grid--4">
+        {oneApp.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Built for your business</span>
+        <h2>Sign digitally, leave the rest to us</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <h3>Integration in a few days</h3>
+          <p>Thanks to our ready-made APIs and connectors for CRM, DMS, and ERP systems, we can connect Signi to the system your firm already uses. It doesn’t take years or months — just a few days.</p>
+        </div>
+        <div class="card">
+          <h3>Onboarding without worries</h3>
+          <p>The transition from paper to digital is a big change. But together we will set up your business processes to streamline your paperwork as soon as possible. Our onboarding package has all the detail you need.</p>
+        </div>
+        <div class="card">
+          <h3>Top security for your data</h3>
+          <p>We encrypt and secure all incoming and outgoing data with an HTTPS certificate. Documents are protected by a unique electronic seal and stored on reliable servers in the EU. Any manipulation of content or signatures is effectively impossible.</p>
+        </div>
+      </div>
+      <p style="margin-top:24px">
+        We are leaders in electronic document completion, trusted by people from
+        more than 2 000 innovative companies. <a href="/en/security/">Find out more
+        about security</a>.
+      </p>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="You’re just a step away from digital signing"
+    text="Leave us your contact details and our specialist will get back to you — with pricing, a tailored case study, and a clear plan."
+  />
+</Base>

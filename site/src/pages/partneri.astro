@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const why = [
+  ['Přitáhnete nové zákazníky', 'Digitální podepisování je žádané řešení napříč obory — pomůže vám oslovit nové klienty.'],
+  ['Rozšíříte své portfolio', 'Signi skvěle doplní vaše produktové portfolio i vlastní softwarové řešení.'],
+  ['Vyděláte víc peněz', 'Za zprostředkované obchody získáváte provize — výši svého zapojení máte ve svých rukou.'],
+];
+
+const types = [
+  ['Business partner', 'Mít digitální podepisování Signi je pro firmy konkurenční výhoda. Digitalizují se firmy napříč všemi segmenty, proto se Signi skvěle hodí jako doplnění produktové nabídky.'],
+  ['Solution partner', 'Řada firem už má digitalizační strategii pevně zakotvenou. Elektronický podpis jako součást CRM, DMS nebo ERP systémů představuje nový standard.'],
+];
+
+const steps = [
+  ['Zaregistrujte se', 'Vyplnění registračního formuláře vám zabere jen pár minut. Stačí dát Odeslat a my vám obratem zavoláme.'],
+  ['Podepíšete smlouvu', 'Domluvíme se na podmínkách a uzavřeme spolu smlouvu. Pár kliknutí v naší aplikaci a je to.'],
+  ['Onboardujete se', 'Máme pro vás připravené všechno, co ke startu i hladké obchodní jízdě potřebujete. Dáme vám plnou podporu i důvěru.'],
+  ['Začnete vydělávat', 'Otestujeme se navzájem na pilotním projektu. Jestli se do sbírání provizí vrhnete po hlavě, nebo s rozvahou, necháme na vás.'],
+];
+---
+
+<Base
+  title="Partnerství se Signi vám získá nové zákazníky | Signi"
+  description="Digitální podepisování skvěle doplní vaše produktové portfolio nebo vlastní softwarové řešení. Díky partnerství se Signi ušetříte čas i papírování."
+  lang="cs"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Partnerství</span>
+      <h1>Partnerství, které vám získá nové zákazníky</h1>
+      <p class="lead">
+        Digitální podepisování skvěle doplní vaše produktové portfolio nebo
+        vlastní softwarové řešení.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/odeslat-poptavku/">Stát se partnerem</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>Proč se stát Signi partnerem</h2>
+      </div>
+      <div class="grid grid--3">
+        {why.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>Vyberte si typ obchodní spolupráce</h2>
+      </div>
+      <div class="grid grid--2">
+        {types.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <h2>Jak se stát partnerem</h2>
+      </div>
+      <div class="grid grid--4">
+        {steps.map(([title, text], i) => (
+          <div class="card">
+            <div class="card__icon">{i + 1}</div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner lang="cs" title="Spojte své jméno s úspěšným produktem" />
+</Base>

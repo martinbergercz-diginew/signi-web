@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const measures = [
+  ['Unique hash keys and HTTPS', 'All data going in and out of Signi is secured with an HTTPS certificate. Documents are protected by unique hash keys that prevent any manipulation of the content.'],
+  ['We log signatures immediately', 'Each signature is immediately logged and stored together with all the data records that guarantee its authenticity and indisputability. We keep detailed logs of all activity in the application.'],
+  ['Servers located exclusively in the EU', 'We collect all data on secure servers located exclusively in the European Union.'],
+];
+---
+
+<Base
+  title="With Signi, your documents are safe | Signi"
+  description="The security of your data is our number one priority. We encrypt everything and store it on servers located exclusively in the European Union."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Security</span>
+      <h1>With Signi, your documents are safe</h1>
+      <p class="lead">
+        We are fully aware of the sensitivity of the data you enter into Signi.
+        The security of your data is our number one priority — we encrypt
+        everything and store it on servers located exclusively in the EU.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
+        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">How we protect your data</span>
+        <h2>Security built into every layer</h2>
+      </div>
+      <div class="grid grid--3">
+        {measures.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Legally valid</span>
+        <h2>Compliance you can rely on</h2>
+      </div>
+      <div class="grid grid--2">
+        <div class="card">
+          <h3>The same legal weight as a signature on paper</h3>
+          <p>Signi-signed documents are in full compliance with Czech law and are valid, binding, and legally enforceable in the Czech Republic, the entire European Union, and the USA. Signi fully respects EU Regulation No. 910/2014 (eIDAS) on electronic identification and trust services for electronic transactions.</p>
+        </div>
+        <div class="card">
+          <h3>Signi is GDPR ready</h3>
+          <p>Signi is 100 % GDPR ready. All processes, conditions, documents, and technical solutions are in accordance with the regulation governing the protection of users’ personal data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="How to digitize your company documents? Feel free to do it today"
+  />
+</Base>

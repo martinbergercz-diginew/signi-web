@@ -1,0 +1,114 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const pillars = [
+  ['Electronic signature', 'We have the correct electronic signature for every document. So you can get rid of the paperwork without any worries.'],
+  ['Trusted archiving', 'Just as important as concluding a contract is its trustworthy archiving, which ensures its validity for decades.'],
+  ['Remote identification', 'Onboarding or closing a contract with a customer is secure, automated and done within minutes with Signi.'],
+  ['Approval and signature workflow', 'Eliminate unnecessary waiting and time-consuming approval of paper documents. Digitise and simplify your work today.'],
+];
+
+const reasons = [
+  ['Legally binding signed documents', 'Paperwork is a thing of the past — just like a round stamp. An electronic signature in Signi carries the same weight as a signature on paper and is legally binding.'],
+  ['Faster negotiations with customers and employees', 'Process sales contracts, orders, work agreements, and dozens of other documents online. Your customers and employees will appreciate it.'],
+  ['Simpler company administration', 'You don’t need to print digital documents, collect signatures, or scan them once signed. Manage everything from your computer in a few clicks.'],
+  ['Permanent control over documentation', 'All your contracts and company documents are securely stored in one place and you can access them online 24/7.'],
+  ['Lower document storage costs', 'Electronic archives don’t burden the company’s pocket nor the shelves in your warehouse. Signi storage is safe, organized and easy to search.'],
+  ['Environmental and financial savings', 'Every unprinted page counts. Reduced paper and toner consumption pleases you and nature alike — and your printing costs noticeably drop.'],
+];
+---
+
+<Base
+  title="Signi is everything you need to agree | Signi"
+  description="Digitize 100 % of your documents and processes. Create, approve, sign and archive documents — all electronically, in one application."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Signi</span>
+      <h1>Signi is everything you need to agree</h1>
+      <p class="lead">
+        You can digitize 100 % of your documents and processes. Create, approve,
+        sign and archive documents — all electronically and in one application.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
+        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">What Signi does</span>
+        <h2>Everything for digital signing in one place</h2>
+      </div>
+      <div class="grid grid--4">
+        {pillars.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Why switch</span>
+        <h2>6 reasons to switch to electronic document signing</h2>
+        <p class="lead">
+          Signing contracts and other company documents online saves time,
+          reduces printing costs, and minimizes errors.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {reasons.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Built for scale</span>
+        <h2>One secure platform from signing to integration</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <h3>Signature and identification on one device</h3>
+          <p>We guarantee a 100 % valid and secure electronic signature. Signi signatures comply with the eIDAS standard and are valid across the European Union. For remote identity verification we use BankID or a combination of several trustworthy elements.</p>
+        </div>
+        <div class="card">
+          <h3>Automated workflows for faster handling</h3>
+          <p>Sign and approve documents in just a few clicks — no printing or scanning. Set up a sophisticated workflow that monitors signatures and deadlines for you.</p>
+        </div>
+        <div class="card">
+          <h3>Rapid integration into your system</h3>
+          <p>We have ready-made APIs and connectors for various CRM, DMS, and ERP systems. We can integrate Signi within days, whether you use Helios or Microsoft Teams.</p>
+        </div>
+      </div>
+      <p style="margin-top:24px">
+        Your data is safe with us. We monitor all processes 24/7 and regularly
+        perform penetration and stress tests — backed by ISO 27001 and 27017
+        certifications. We are trusted by people from more than 2 000 innovative
+        companies.
+      </p>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="Streamline your business processes and convert 100 % of your signing to Signi"
+    text="Registration is free and non-binding — sign your first documents within minutes."
+  />
+</Base>

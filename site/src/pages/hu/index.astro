@@ -1,0 +1,92 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const reasons = [
+  ['Az aláírt dokumentumok jogi érvényessége', 'A papírmunka a múlté. Akárcsak a bélyegző. Az elektronikus aláírás a Signiben ugyanolyan hiteles, mint a papíralapú, és jogilag kötelező érvényű.'],
+  ['Gyorsabb ügyintézés az ügyfelekkel és a munkavállalókkal', 'Vásárlási szerződések, megrendelések, megállapodások és több tucat más dokumentum online aláírható. Ügyfelei és alkalmazottai értékelni fogják.'],
+  ['Egyszerűsített vállalati adminisztráció', 'Nem kell dokumentumokat nyomtatnia, aláírásra várni, vagy már aláírt dokumentumokat beszkennelnie. Mindent kényelmesen, néhány kattintással elvégezhet a számítógépéről.'],
+  ['Az üzleti dokumentáció állandó ellenőrzése', 'Minden szerződését és egyéb üzleti dokumentumát biztonságosan, egy helyen tárolja, és a nap 24 órájában online hozzáférhet.'],
+  ['Alacsonyabb dokumentumtárolási költségek', 'Az elektronikus archívum nem terheli sem a vállalat zsebét, sem az irattár polcait. A Signi archívum biztonságos és átlátható.'],
+  ['Környezeti és pénzügyi megtakarítások', 'Minden nyomtatás nélküli oldal számít. Az alacsonyabb papír- és tintafogyasztás Önt és a környezetet is boldogabbá teszi. Irodájának üzemeltetési költségei jelentősen csökkennek.'],
+];
+
+const features = [
+  ['Digitális aláírás és távoli azonosítás egy eszközön', 'A Signi digitális aláírások eIDAS-kompatibilisek és az Európai Unió egész területén érvényesek. A személyazonosság távoli ellenőrzéséhez Signi azonosítást használunk (személyazonossági igazolvány, szelfi és mikrofizetés kombinációja).'],
+  ['Automatizált munkafolyamatok a gyorsabb dokumentumkezelés érdekében', 'A dokumentumok aláírása és jóváhagyása csak néhány kattintásnyira van. Nem nyomtat semmit, nem szkennel semmit. Egy kifinomult munkafolyamatot állít be, amely gondoskodik Ön helyett az aláírásokról és a határidőkről.'],
+  ['Gyors integráció a már használt rendszerekbe', 'Nem tart hónapokig, amíg csatlakozunk az Ön belső rendszereihez. Kész API-kkal és csatlakozókkal rendelkezünk különböző típusú CRM-, DMS- és ERP-rendszerekhez. Így a Signit akár pár nap alatt integrálni tudjuk.'],
+  ['Biztonságos megoldások bankok, vállalatok és startupok számára', 'Az Ön adatait úgy kezeljük, mintha a sajátjaink lennének, mivel tudjuk, hogy azok a legértékesebbek az Ön számára. Sikeresen magunkénak tudhatjuk az ISO 27001 és 27017 tanúsítványokat.'],
+];
+---
+
+<Base
+  title="Digitális aláírás | Signi"
+  description="A Signi minden, amire szüksége van a megállapodáshoz. Hozzon létre, hagyjon jóvá, írjon alá és archiváljon dokumentumokat digitálisan, egyetlen alkalmazásban."
+  lang="hu"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Digitális aláírás</span>
+      <h1>A Signi minden, amire szüksége van</h1>
+      <p class="lead">
+        Ma már a dokumentumok és folyamatok 100%-a digitalizálható. Az
+        alkalmazásunkban dokumentumokat tud létrehozni, jóváhagyni, aláírni és
+        archiválni. Mindezt digitálisan, egy egyszerű, felhasználóbarát
+        környezetben.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Ingyenes kipróbálás</a>
+        <a class="btn btn--ghost" href="/hu/">Bemutató igénylése</a>
+      </div>
+      <p style="margin-top:28px;color:var(--muted);font-size:.95rem">
+        Több mint 1 200 innovatív vállalat munkatársai bíznak bennünk.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <span class="eyebrow">Miért a Signi</span>
+        <h2>6 ok, amiért érdemes áttérni az elektronikus dokumentum-aláírásra</h2>
+        <p class="lead">
+          A szerződések és egyéb üzleti dokumentumok online aláírása időt
+          takarít meg, csökkenti a nyomtatási költségeket és minimalizálja a
+          hibák számát.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {reasons.map(([title, text], i) => (
+          <div class="card">
+            <div class="card__icon">{i + 1}</div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Amit a Signi tud</span>
+        <h2>Minden, amit a digitális aláírástól elvár</h2>
+      </div>
+      <div class="grid grid--2">
+        {features.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="hu"
+    title="Optimalizálja üzleti folyamatait és vigye át az aláírások 100%-át a Signi-be"
+    text="Próbálja ki a Signit ingyenesen és kötelezettség nélkül, vagy kérjen tőlünk bemutatót."
+  />
+</Base>

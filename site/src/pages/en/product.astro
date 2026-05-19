@@ -1,0 +1,106 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const capabilities = [
+  ['Electronic signature', 'You no longer need to go to the post office for an electronic signature. With us, you choose exactly the type of signature you need. All Signi signatures meet high standards for security and are eIDAS-compliant.'],
+  ['Distant identification', 'There are several ways to remotely verify the identity of your business and work partners. We allow verification via BankID or through a combination of several trustworthy elements.'],
+  ['Approval and signature workflow', 'Endless approval wheels and the physical presence of all signers are a thing of the past. Approval processes can be automated exactly as you need them.'],
+  ['Long-term electronic archiving', 'You are obliged to archive certain signed documents for 3 to 30 years. Signi digital archiving complies with all legal standards and reduces your printing and storage costs.'],
+  ['Bulk distribution of internal documents', 'There’s usually a ton of internal administrative paperwork — amendments, guidelines, tax statements. The Bulk Distribution feature sends such notifications out on your behalf.'],
+  ['Easy integration with information systems', 'We designed Signi as a variable component that can be integrated into CRM, DMS, or ERP systems in just a matter of days.'],
+];
+
+const why = [
+  ['Top technical and customer support', 'We are always happy to lend a helping hand — whether you need to train your people to work with Signi or just solve common operational problems.'],
+  ['Safety first', 'Your data is safe with us. We monitor all processes 24/7 and regularly perform penetration and stress tests. Signi meets the strictest standards for banking applications.'],
+  ['Intuitive user interface', 'We wanted to make using Signi as easy as possible. That’s why we spent a lot of time tuning the user interface — users learn the application very quickly.'],
+  ['Applicable to various document types', 'You choose the type of document and the process you want it to go through to signature, and we tailor it to your exact needs.'],
+  ['Strong financial and operational background', 'We are part of a strong financial institution. We are backed by Česká spořitelna, our strategic partner and shareholder.'],
+  ['Love at first sign', 'Why do our clients choose Signi for digital signing? These are the reasons upon which they agree, again and again.'],
+];
+---
+
+<Base
+  title="Secure electronic signing, fast and paperless | Signi"
+  description="Thanks to Signi you can digitize your paperwork and sign 100 % of your documents — by the book, all in one application."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Product</span>
+      <h1>Secure electronic signing — fast and paperless</h1>
+      <p class="lead">
+        Thanks to Signi, you can digitize your paperwork and sign 100 % of your
+        documents. By the book.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
+        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">What Signi does</span>
+        <h2>Everything for digital signing in one application</h2>
+      </div>
+      <div class="grid grid--3">
+        {capabilities.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Signature types</span>
+        <h2>The right signature for every document</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <h3>Simple signature</h3>
+          <p>Signi’s simple signature is sufficient for most business documents. We combine SMS verification and a biometric signature, supplemented by distant identification.</p>
+        </div>
+        <div class="card">
+          <h3>Guaranteed signature</h3>
+          <p>Signi’s guaranteed signature is linked to a certificate issued after identification through BankID. Everything takes place comfortably within Signi.</p>
+        </div>
+        <div class="card">
+          <h3>Qualified signature</h3>
+          <p>Signi’s qualified signature is used when signing large contracts or communicating with the government. It is our highest-level signature.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Why Signi</span>
+        <h2>Love at first sign</h2>
+      </div>
+      <div class="grid grid--3">
+        {why.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="How to digitize your company documents? Feel free to do it today"
+    text="Registration is free and non-binding — sign your first documents within minutes."
+  />
+</Base>

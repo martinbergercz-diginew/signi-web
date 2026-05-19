@@ -1,0 +1,115 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const reasons = [
+  ['Právna záväznosť podpísaných dokumentov', 'Papierovanie patrí do minulosti. Rovnako ako guľaté razítko. Elektronický podpis Signi má rovnakú váhu ako ten na papieri a je právne záväzný.'],
+  ['Rýchlejšie jednanie so zákazníkmi a zamestnancami', 'Kupné zmluvy, objednávky, dohody o vykonaní práce a desiatky ďalších dokumentov vybavíte online. Vaši zákazníci aj zamestnanci to ocenia.'],
+  ['Jednoduchšia firemná administratíva', 'Digitálne dokumenty nemusíte tlačiť, zháňať na ne podpisy, ani ich skenovať už podpísané. Všetko zariadite pohodlne zo svojho počítača na pár kliknutí.'],
+  ['Trvalá kontrola nad obchodnou dokumentáciou', 'Všetky vaše zmluvy a iné firemné dokumenty sa bezpečne ukladajú na jednom mieste a môžete k nim pristupovať online 24/7.'],
+  ['Nižšie náklady na skladovanie dokumentov', 'Elektronický archív nezaťažuje firemnú kapsu, ani police v sklade. Signi úložisko je bezpečné a prehľadné. Ľahko v ňom hľadáte aj filtrujete.'],
+  ['Ekologická a finančná úspora na spotrebnom materiáli', 'Každá nevytlačená stránka sa počíta. Nižšia spotreba papiera a tonerov poteší vás aj prírodu. Výdaje za prevádzku vášho tlačového parku sa citeľne znížia.'],
+];
+
+const features = [
+  ['Elektronický podpis a overenie totožnosti na jednom zariadení', 'Digitálne podpisy Signi sú v súlade s normou eIDAS a platia v celej Európskej únii. Pre vzdialené overovanie identity používame Signi identifikáciu (kombinácia osobných dokladov, selfie a mikroplatby).'],
+  ['Automatizované workflow pre ľahšiu prácu s dokumentmi', 'Podpisovanie a schvaľovanie dokumentov prebieha na pár kliknutí. Nič netlačíte, nič neskenujete. Sami si nastavíte sofistikované workflow, ktoré podpisy, termíny aj hladký priebeh schvaľovania stráži za vás.'],
+  ['Rýchla integrácia do systémov, ktoré už používate', 'Na pripojenie k vašim interným systémom nepotrebujeme dlhé mesiace. Máme pripravené API a konektory pre rôzne typy CRM, DMS a ERP systémov. Signi tak integrujeme v priebehu niekoľkých dní.'],
+  ['Bezpečné riešenie pre banky, korporácie aj startupy', 'Vaše dáta sú u nás v bezpečí. Všetky procesy monitorujeme 24/7 a pravidelne vykonávame penetračné a záťažové testy. Za bezpečnosť vašich dát ručíme aj certifikátmi ISO 27001 a 27017.'],
+];
+
+const partners = [
+  ['Onboarding', 'Poradíme vám, ako začať s digitalizáciou vo vašej spoločnosti. Od technického nastavenia až po školenie zamestnancov.'],
+  ['Zákaznícka starostlivosť', 'Budeme váš sprievodca na ceste k digitalizácii. O digitálnom podpise vieme takmer všetko a radi vám poradíme.'],
+  ['Technická podpora', 'Máte technický problém alebo požiadavku? Nahliadnite do nápovedy alebo sa na nás obráťte. Radi vám poradíme.'],
+  ['Webové semináre', 'Pravidelne usporadúvame webináre plné praktických skúseností a noviniek zo sveta digitálneho podpisovania.'],
+  ['Prípadové štúdie', 'Inšpirujte sa príbehmi firiem, ktoré úspešne digitalizovali firemné dokumenty a zbavili sa administratívy.'],
+  ['Na stiahnutie', 'Všetko dôležité o digitálnom podpisovaní. Odporúčame náš najsťahovanejší dokument 40 HR dokumentov.'],
+];
+---
+
+<Base
+  title="Elektronický podpis dokumentov | Signi"
+  description="Zrýchľujeme vaše podnikanie. Online elektronické podpisovanie záväzných dokumentov a zmlúv je so Signi otázkou niekoľkých minút. Vytvárajte a podpisujte čokoľvek a kdekoľvek."
+  lang="sk"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Elektronický podpis dokumentov</span>
+      <h1>Signi je všetko, čo potrebujete na uzavretie dohody</h1>
+      <p class="lead">
+        Už dnes môžete digitalizovať 100 % svojich dokumentov a procesov.
+        Dokumenty vytvárate, schvaľujete, podpisujete a archivujete. Všetko
+        elektronicky a v jednej aplikácii.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Vyskúšať zadarmo</a>
+        <a class="btn btn--ghost" href="/sk/">Dohodnúť prezentáciu</a>
+      </div>
+      <p style="margin-top:28px;color:var(--muted);font-size:.95rem">
+        Dôverujú nám ľudia z viac ako 2 000 inovatívnych spoločností.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <span class="eyebrow">Prečo Signi</span>
+        <h2>6 dôvodov prečo prejsť na elektronické podpisovanie dokumentov</h2>
+        <p class="lead">
+          Online podpis zmlúv a ďalších firemných dokumentov šetrí čas, znižuje
+          náklady a minimalizuje chybovosť.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {reasons.map(([title, text], i) => (
+          <div class="card">
+            <div class="card__icon">{i + 1}</div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Čo Signi umí</span>
+        <h2>Všetko, čo od digitálneho podpisovania čakáte</h2>
+      </div>
+      <div class="grid grid--2">
+        {features.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <h2>Sme vaši partneri na ceste k digitalizácii</h2>
+      </div>
+      <div class="grid grid--3">
+        {partners.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="sk"
+    title="Zefektívnite firemné procesy a preveďte 100 % podpisovania do Signi"
+    text="Vyskúšajte si Signi zadarmo a nezáväzne, alebo si s nami dohodnite prezentáciu."
+  />
+</Base>

@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Domluvit prezentaci | Signi"
+  description="Máte jakýkoliv dotaz? Nechte nám na sebe kontakt. V krátkém čase vás bude kontaktovat náš specialista na elektronický podpis a další služby od Signi."
+  lang="cs"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Domluvit prezentaci</span>
+      <h1>Jste tak blízko. Vyplňte formulář a ostatní zařídíme my</h1>
+      <p class="lead">
+        Nechte nám na sebe kontakt a v krátkém čase vás bude kontaktovat náš
+        specialista na elektronický podpis.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2">
+        <div>
+          <h2>Co od nás můžete čekat</h2>
+          <ul class="prose">
+            <li>Ozveme se vám do druhého pracovního dne.</li>
+            <li>Ukážeme vám Signi na vašich reálných dokumentech.</li>
+            <li>Pošleme případové studie firem podobných té vaší.</li>
+            <li>Spočítáme cenu na míru velikosti vašeho týmu.</li>
+          </ul>
+        </div>
+        <div class="card">
+          {/* Form endpoint (POST /api/submissions) + spam protection are wired in Phase 7. */}
+          <form method="post" action="#" class="stack">
+            <div>
+              <label for="name">Jméno a příjmení</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div>
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div>
+              <label for="phone">Telefon</label>
+              <input id="phone" name="phone" type="tel" />
+            </div>
+            <div>
+              <label for="company">Firma</label>
+              <input id="company" name="company" type="text" />
+            </div>
+            <div>
+              <label for="message">Zpráva</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <button class="btn btn--primary" type="submit">Odeslat poptávku</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  label { display: block; font-weight: 600; color: var(--ink); margin-bottom: 6px; font-size: 0.95rem; }
+  input, textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    font: inherit;
+    color: var(--ink);
+  }
+  input:focus, textarea:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+</style>

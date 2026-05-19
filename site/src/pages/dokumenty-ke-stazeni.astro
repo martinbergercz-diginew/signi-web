@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const documents = [
+  'Přehled nejčastěji podepisovaných dokumentů v HR',
+  'Praktický checklist 5 kroků k digitálnímu HR',
+  'Stanovisko PRK Partners k digitalizaci HR dokumentů',
+  'Přehled oblastí dokumentů z oboru Advokacie',
+  'Přehled oblastí dokumentů z oboru Realit',
+  'Přehled oblastí dokumentů v Obchodě',
+  'Přehled oblastí dokumentů z oboru Stavebnictví a development',
+  'Jak vybrat řešení pro elektronické podepisování dokumentů',
+  'Manažerův průvodce po stopách elektronického podpisu',
+  'Checklist pro výběr služby na elektronické podepisování',
+];
+---
+
+<Base
+  title="Dokumenty ke stažení | Signi"
+  description="Užitečné materiály o digitálním podepisování a digitalizaci HR ke stažení zdarma. Checklisty, přehledy dokumentů a průvodci elektronickým podpisem."
+  lang="cs"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Ke stažení</span>
+      <h1>Dokumenty ke stažení</h1>
+      <p class="lead">
+        Vše důležité o digitálním podepisování na jednom místě. Stáhněte si
+        checklisty, přehledy dokumentů a průvodce — zdarma.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--3">
+        {documents.map((title) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p><a href="/odeslat-poptavku/">Stáhnout materiál</a></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="cs"
+    title="Chcete digitalizovat firemní dokumenty?"
+    text="Vyzkoušejte si Signi zdarma nebo si s námi domluvte prezentaci."
+  />
+</Base>

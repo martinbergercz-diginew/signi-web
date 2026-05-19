@@ -1,0 +1,85 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const services = [
+  ['Setup and configuration', 'Every company uses Signi a little differently. That\'s why we go through the entire application with you and always set it up to work best for you. Although Signi is simple and intuitive, it contains several advanced features that would be a shame not to use.'],
+  ['Training and workshops', 'We put extra emphasis on thoroughly training your people. When everyone knows how to effectively work with Signi, that\'s when you get the most out of its features. We train small and large teams alike — we demonstrate, repeat, and explain, and no question is irrelevant.'],
+  ['Integration assistance', 'Integration always costs something — time and/or money. We can save you both. Thanks to our experience from many diverse projects, we minimize your integration time, and our senior developers and software analysts have your back throughout the process.'],
+  ['Professional consulting', 'Our know-how is also your know-how. We really know a lot about document digitization and electronic signing. We follow trends and share our experience and best practices through personal consultations, training materials, instructional videos, and detailed help.'],
+];
+
+const steps = [
+  ['Create your first account', 'Creating an account with Signi is essential. We\'ll then immediately add your first documents for signing so you can try out how it works.'],
+  ['Select a pilot project', 'You need to learn to walk before you run. Together we select a pilot project — usually one type of document or process use case.'],
+  ['Prepare the roadmap', 'With your personal consultant guiding you through the entire onboarding process, you will plan a detailed onboarding roadmap. You and your people will know exactly what to expect and when.'],
+  ['Test and optimize', 'You are already signing with Signi. We help and advise your people with their first documents, perform optimization and stress tests, and make sure everything is running according to plan.'],
+];
+---
+
+<Base
+  title="Onboarding services | Signi"
+  description="Switching to digital signing is a big step forward. Our professional consultants will ensure a smooth transition for you and your documents."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Onboarding services</span>
+      <h1>Our people work for you</h1>
+      <p class="lead">
+        Switching to digital signing is a big step forward. Our professional
+        consultants will ensure a smooth transition for you and your documents.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
+        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>Onboarding with Signi</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Signing up with Signi will just be the first of many signatures
+          together. We will be there for you right from that first signature
+          and anytime you need help with anything thereafter.
+        </p>
+      </div>
+      <div class="grid grid--2">
+        {services.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>4 steps from pen to digital</h2>
+      </div>
+      <div class="grid grid--4">
+        {steps.map(([title, text], i) => (
+          <div class="card">
+            <div class="card__icon">{i + 1}</div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="Ready to make the switch?"
+    text="Schedule a meeting and our specialists will guide you through every step of your onboarding."
+  />
+</Base>

@@ -1,0 +1,133 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const dna = [
+  'We are a small, flexible company with fast decision-making processes and the drive to succeed.',
+  'We rely on good relationships and a relaxed work environment.',
+  'We are expanding to other Central European countries and have many interesting projects and opportunities ahead of us.',
+];
+
+const benefits = [
+  'Home office and flexible employment options',
+  'Flexible working hours',
+  'Unlimited vacation',
+  'Knowledge sharing',
+  'Reward for recommending new colleagues',
+  'Budget for leisure activities',
+  'Budget for personal development and education',
+  'Corporate and team events',
+];
+
+const positions = [
+  ['Sales development representative', 'Czech Republic — Prague'],
+  ['Sales konzultant', 'Czech Republic — Prague'],
+];
+---
+
+<Base
+  title="Career | Signi"
+  description="Signi is always looking for smart people. Join us and help rid the world of paper documents."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Career</span>
+      <h1>Signi is always looking for smart people</h1>
+      <p class="lead">
+        Join us and help rid the world of paper documents. We are a team of
+        professionals and enthusiasts who develop and constantly improve a
+        unique service for creating, managing, and signing documents
+        electronically.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
+        <a class="btn btn--ghost" href="#vacancies">Vacancies</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Who are we?</span>
+        <h2>A great product, built by people who care</h2>
+      </div>
+      <div class="prose">
+        <p>
+          We are a team of professionals and enthusiasts who develop and
+          constantly improve a unique service for creating, managing, and
+          signing documents in electronic form. Our priority is a great
+          product and its usability, security, and simplicity.
+        </p>
+        <p>
+          Our two-year goal is for Signi to be helping our clients by
+          processing 10,000 documents a day in at least 5 European countries.
+          Our clients include Alza.cz, Accolade, DoDo, Porr, LMC, Nova,
+          Multisport, Driveto, Remax, Charles University, and others.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Corporate culture</span>
+        <h2>Why work at Signi</h2>
+      </div>
+      <div class="prose">
+        <p>
+          The core values of our corporate culture are freedom and
+          responsibility. We make free and quick decisions because we are not
+          burdened by unnecessary controls and rules. At the same time, we are
+          responsible for our actions and behavior in everything we do —
+          towards customers, colleagues, and the company. We are a team that
+          likes innovation. We never say that something is impossible, we are
+          not afraid to take risks, and we learn from mistakes.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {dna.map((text) => (
+          <div class="card"><p>{text}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>Employee benefits</h2>
+      </div>
+      <div class="grid grid--4">
+        {benefits.map((title) => (
+          <div class="card" style="text-align:center"><strong>{title}</strong></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="vacancies">
+    <div class="container">
+      <div class="section__head">
+        <h2>Vacancies</h2>
+      </div>
+      <div class="grid grid--3">
+        {positions.map(([title, place]) => (
+          <div class="card">
+            <span class="eyebrow">{place}</span>
+            <h3>{title}</h3>
+            <p><a href="/en/contact/">I'm interested</a></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="Didn't find the right position for you here?"
+    text="Get in touch anyway — maybe we'll come up with something. We look forward to hearing from you."
+  />
+</Base>

@@ -1,0 +1,102 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const history = [
+  ['The spark', 'Ondřej hires a lady to clean and then must solve how to sign a contract with her. An idea is born — do it differently, quickly, digitally. Unfortunately, the market was not yet ready.'],
+  ['First sketches', 'He brings together a team of enthusiasts and draws the first sketches of a document-signing application. Companies are digitizing, and iSmlouva is founded.'],
+  ['First investment', 'The investment group GFF s.r.o. enters the project. iSmlouva acquires its first major clients from large companies and corporations.'],
+  ['iSmlouva becomes Signi', 'The solution is not just about contracts but all kinds of paperwork. Thousands of companies are already using it, and global ambitions lead to rebranding. Signi is born.'],
+  ['A key investor joins', 'Česká spořitelna enters Signi. Signi becomes a key partner for digitization throughout the region, a branch office opens in Hungary, and further markets are developed.'],
+  ['New markets, new clients', 'We enter Slovakia and keep gaining new clients. In short, we are not stopping.'],
+];
+
+const team = [
+  ['Ondřej Synovec', 'CEO', 'A few years ago, Ondřej was absorbed by the idea of electronic signing. The notion kept him up at night — and still does.'],
+  ['Martin Berger', 'Head of Product', 'Martin gives life to our application and makes sure that everything works as it should.'],
+];
+---
+
+<Base
+  title="About us | Signi"
+  description="We are Signi and we are changing the centuries-old approach to completing agreements."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">About us</span>
+      <h1>We are changing the centuries-old approach to completing agreements</h1>
+      <p class="lead">
+        In the beginning there was a pile of paper documents that needed to be
+        printed, signed, scanned, and emailed. That gave rise to one question —
+        couldn’t it be done better? That’s what we all live for now.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
+        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Who we are</span>
+        <h2>From a punk startup of 4 people to a company of 35</h2>
+        <p class="lead">
+          What are we actually doing? We bring money in faster, reduce the time
+          needed to create and sign documents, and streamline company paperwork.
+        </p>
+      </div>
+      <div class="prose">
+        <p>
+          We are experts who want to bring simple and effective solutions. We
+          want to be experts who constantly learn and improve, setting standards
+          and pushing boundaries in security, digital identity verification,
+          usability, and simplicity. We love technology when it is simple and
+          usable. We are on a mission to rid the world of paper contracts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Our history</span>
+        <h2>It all started the day Ondřej needed to sign a contract with his cleaning lady</h2>
+      </div>
+      <div class="grid grid--3">
+        {history.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Our team</span>
+        <h2>We enjoy solving specific problems</h2>
+      </div>
+      <div class="grid grid--2">
+        {team.map(([name, role, bio]) => (
+          <div class="card">
+            <h3>{name}</h3>
+            <p style="font-weight:600;color:var(--brand)">{role}</p>
+            <p>{bio}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="How to digitize your company documents? Feel free to do it today"
+  />
+</Base>

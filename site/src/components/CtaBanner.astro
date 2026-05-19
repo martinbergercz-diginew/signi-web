@@ -1,0 +1,27 @@
+---
+import { strings } from '../i18n/strings.js';
+
+interface Props {
+  lang?: string;
+  title: string;
+  text?: string;
+}
+const { lang = 'cs', title, text } = Astro.props;
+const t = strings[lang] ?? strings.cs;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>{title}</h2>
+      {text && <p class="lead">{text}</p>}
+      <div class="hero__actions">
+        <a class="btn btn--light" href={t.ctaTry.href}>{t.ctaTry.label}</a>
+        <a class="btn btn--ghost" href={t.ctaDemo.href}
+           style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)">
+          {t.ctaDemo.label}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

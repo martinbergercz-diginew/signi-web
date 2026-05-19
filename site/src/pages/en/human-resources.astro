@@ -1,0 +1,123 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const features = [
+  ['Preset templates', 'Thanks to our practical preset templates, you can create any HR document in a matter of minutes. They also provide a professional look that would otherwise require a graphic designer.'],
+  ['Automated workflows', 'Stop sending endless emails back and forth. Set up your approval processes, notifications, and access levels once, then the system does the work for you.'],
+  ['Full overview', 'With a single glance you immediately know who has received, approved, and signed your documents. Automatic reminders reduce the time you spend auditing and following up.'],
+  ['Bulk dispatch', 'Send hundreds of GDPR confirmations or statements in bulk with just a few clicks. Select contacts, choose a document or template, set the signature scenario, and send.'],
+  ['Top-level security', 'The security of your data is our absolute priority. We encrypt and store everything on servers in Czechia, exclusively within the European Union.'],
+  ['Integrations', 'Job reports, attendance, and all records in your internal HR system can be linked to Signi. We have ready-made connectors and documented APIs for your developers.'],
+];
+---
+
+<Base
+  title="Electronic signing for HR | Signi"
+  description="The future of HR is 100% digital. Create, approve, sign, and archive employment documents in Signi — from onboarding to offboarding."
+  lang="en"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Human resources</span>
+      <h1>Simpler HR processes: from onboarding to offboarding</h1>
+      <p class="lead">
+        Stacks of papers, hours of routine work, a neverending story? Thanks to
+        digitization and automated workflows of HR documents, you can devote
+        much more time to those who bring the greatest value to your company:
+        your people.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
+        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>HR managers are here for people, not for paperwork</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Automating document signing and internal processes will save you
+          hours, possibly even days of administrative work. You can easily
+          create, approve, sign, and archive your legal employment documents in
+          Signi.
+        </p>
+        <p>
+          By streamlining your paperwork, you'll have more capacity to
+          strategically develop your employees and improve workplace
+          relationships. Instead of a growing mountain of paper, it will be
+          your people's satisfaction that grows.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>The most frequently used documents in HR</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Alongside expert lawyers and our clients, we have mapped out the
+          documents and workflows most often used in HR. The good news: you can
+          digitize all your HR documents and rely on Signi electronic signing
+          to fulfill your legal requirements.
+        </p>
+        <p>
+          For some documents, remote digital signing alone is not enough.
+          Nevertheless, you do not have to give up on going paperless — the
+          signer can simply come and sign the document on your tablet.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>Legally correct to the last paragraph</h2>
+      </div>
+      <div class="prose">
+        <p>
+          The Labor Code imposes strict requirements regarding the delivery of
+          documents. Certain documents must first be delivered by hand to
+          employees in the workplace.
+        </p>
+        <p>
+          If in-person delivery fails, you can choose another form of delivery,
+          including electronically. Neither the Labor Code nor any other
+          legislation restricts the possibility of signing a document
+          electronically. As a result, you can successfully digitize 100 % of
+          your HR paperwork.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>Features you'll surely use for your HR documents</h2>
+      </div>
+      <div class="grid grid--3">
+        {features.map(([title, text]) => (
+          <div class="card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="en"
+    title="Still hesitating? Try Signi for free"
+    text="Leave us your contact details and our specialist will get back to you."
+  />
+</Base>

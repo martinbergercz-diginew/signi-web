@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const tiers = [
+  {
+    name: 'Startup',
+    note: 'Pro malé týmy, které začínají s digitálním podepisováním.',
+    featured: false,
+    features: [
+      'Neomezený počet uživatelů a workspaces',
+      'Detailní auditní stopa (kontrolní list)',
+      'Vložení a podpis vlastního dokumentu',
+      'Přehled o aktuálním stavu dokumentů',
+      'Úložiště dokumentů s vyhledáváním',
+    ],
+  },
+  {
+    name: 'Scaleup',
+    note: 'Skvělé řešení pro rychle rostoucí firmy a startupy.',
+    featured: true,
+    plus: 'Co máte k modulu Startup navíc',
+    features: [
+      'Zaručený elektronický podpis BankID Sign',
+      'Předdefinované podpisové scénáře',
+      'Podpis kvalifikovaným certifikátem',
+    ],
+  },
+  {
+    name: 'Corporate',
+    note: '1. volba pro velké firmy, velké týmy i velké papírování.',
+    featured: false,
+    plus: 'Co máte k modulu Scaleup navíc',
+    features: [
+      'Hromadné operace (podpis, mazání atd.)',
+      'Pokročilá správa uživatelů a oprávnění',
+      'Prioritní zákaznická podpora',
+    ],
+  },
+  {
+    name: 'Corporate Plus',
+    note: 'Specifické řešení pro robustní firmy a korporáty.',
+    featured: false,
+    plus: 'Individuální konfigurace',
+    features: [
+      'Identifikace pomocí BankID, SSO',
+      'Advanced branding',
+      'On-premise řešení na míru',
+    ],
+  },
+];
+
+const faq = [
+  ['Mohu si Signi vyzkoušet ještě před zakoupením předplatného?', 'Ano. Hned po registraci vám dáme k dispozici 3 dokumenty k podpisu zdarma. Ty jsou naprosto plnohodnotné — a můžete si na nich vyzkoušet, zda Signi vyhovuje vašim potřebám.'],
+  ['Musí mít každý, kdo bude podepisovat v Signi, vytvořený vlastní účet?', 'Ne, příjemci vašich dokumentů nepotřebují k podpisu pomocí Signi účet. Váš dokument bude odeslán e-mailem a protistrany si jej mohou prohlédnout a dokončit proces podepisování bez jakékoliv registrace.'],
+  ['Bude se mé předplatné automaticky obnovovat?', 'Ano, vaše předplatné se automaticky obnovuje, dokud nám nedáte vědět, že chcete svůj plán změnit nebo zrušit.'],
+  ['Co se stane s mými dokumenty, pokud se rozhodnu předplatné zrušit?', 'Vůbec nic. V rámci našeho archivu jsou dokumenty bezpečně uloženy.'],
+];
+---
+
+<Base
+  title="Cena elektronického podpisu a dalších služeb | Signi"
+  description="Zajímá vás cena elektronického podpisu a dalších služeb od Signi? Vyberte si ze 2 modulů. Máme řešení pro každého a maximálně se vám přizpůsobíme."
+  lang="cs"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Ceník</span>
+      <h1>Férová cena pro malý tým, startup i velkou korporaci</h1>
+      <p class="lead">
+        Vyberte si modul, který odpovídá velikosti vašeho týmu a objemu
+        dokumentů. Cenu vám rádi spočítáme na míru.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/odeslat-poptavku/">Domluvit cenu</a>
+        <a class="btn btn--ghost" href="https://app.signi.com/register">Vyzkoušet zdarma</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--4">
+        {tiers.map((tier) => (
+          <div class={tier.featured ? 'price-card price-card--featured' : 'price-card'}>
+            <h3>{tier.name}</h3>
+            <p style="color:var(--muted);font-size:.95rem">{tier.note}</p>
+            {tier.plus && <p style="font-weight:600;margin-top:8px">{tier.plus}:</p>}
+            <ul>
+              {tier.features.map((f) => <li>{f}</li>)}
+            </ul>
+            <a class={tier.featured ? 'btn btn--primary' : 'btn btn--ghost'} href="/odeslat-poptavku/">
+              Mám zájem
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Mohlo by vás zajímat</h2>
+      </div>
+      <div class="grid grid--2">
+        {faq.map(([q, a]) => (
+          <div class="card">
+            <h3>{q}</h3>
+            <p>{a}</p>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:24px">
+        Nenašli jste, co jste hledali? Navštivte stránku naší
+        <a href="https://helpdesk.signi.com"> podpory</a>.
+      </p>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="cs"
+    title="Zefektivněte firemní procesy a převeďte 100 % podepisování do Signi"
+  />
+</Base>

@@ -1,0 +1,137 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+
+const tiers = [
+  {
+    name: 'Startup',
+    note: 'Dobrý základ pre jednotlivcov a malé tímy.',
+    featured: false,
+    features: [
+      'Viacjazyčné používateľské rozhranie',
+      'Neobmedzený počet používateľov a pracovných priestorov',
+      'Obálky dokumentov',
+      'Podrobná auditná stopa (kontrolný zoznam)',
+      'Nahratie a podpis vlastného dokumentu',
+      'Prehľad o aktuálnom stave dokumentov',
+      'Úložisko dokumentov s vyhľadávaním',
+      'Jednoduchý elektronický podpis',
+    ],
+  },
+  {
+    name: 'Scaleup',
+    note: 'Skvelé riešenie pre rýchlo rastúce spoločnosti a startupy.',
+    featured: true,
+    plus: 'Čo získate okrem Startup',
+    features: [
+      'Branding aplikácie a e-mailov',
+      'Podpis na jednom zariadení',
+      'Zaručený elektronický podpis BankID Sign',
+      'API vrátane demo prostredia',
+      'Preddefinované podpisové scenáre',
+      'Podpis kvalifikovaným certifikátom',
+      'Vlastné šablóny dokumentov',
+    ],
+  },
+  {
+    name: 'Corporate',
+    note: '1. voľba pre veľké spoločnosti, veľké tímy a veľké papierovanie.',
+    featured: false,
+    plus: 'Čo získate okrem Scaleup',
+    features: [
+      'Hromadné operácie (podpis, mazanie a pod.)',
+      'Fikcia doručenia',
+      'Podpisové roly',
+      'Prílohy k dokumentom',
+      'SSO cez Entra ID',
+      'ICA Remote Sign',
+      'BankID Identify',
+    ],
+  },
+  {
+    name: 'Corporate Plus',
+    note: 'Špecifické riešenie pre robustné firmy a korporáty.',
+    featured: false,
+    plus: 'Individuálna konfigurácia',
+    features: [
+      'Vzdialená identifikácia, SSO',
+      'Pokročilý branding',
+      'On-premise riešenie na mieru',
+    ],
+  },
+];
+
+const faq = [
+  ['Môžem si Signi pred zakúpením predplatného vyskúšať?', 'Áno. Hneď po registrácii vám poskytneme 3 bezplatné dokumenty na podpis. Sú úplne plnohodnotné — a môžete ich použiť na otestovanie, či Signi vyhovuje vašim potrebám.'],
+  ['Musí mať každý, kto bude podpisovať v Signi, svoj vlastný účet?', 'Nie, príjemcovia vašich dokumentov nepotrebujú na podpisovanie účet Signi. Váš dokument bude odoslaný e-mailom a protistrany si ho môžu prezrieť a dokončiť proces podpisu bez akejkoľvek registrácie.'],
+  ['Bude sa moje predplatné automaticky obnovovať?', 'Áno, vaše predplatné sa automaticky obnovuje, kým nám nedáte vedieť, že chcete zmeniť alebo zrušiť svoj plán.'],
+  ['Čo sa stane s mojimi dokumentmi, ak sa rozhodnem zrušiť predplatné?', 'Vôbec nič. Dokumenty sú bezpečne uložené v našich archívoch.'],
+];
+---
+
+<Base
+  title="Cenník | Signi"
+  description="Zaujíma vás cena elektronického podpisu a ďalších služieb od Signi? Vyberte si modul, ktorý odpovedá veľkosti vášho tímu. Máme riešenie pre každého."
+  lang="sk"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Cenník</span>
+      <h1>Spravodlivá cena pre malý tím, startup aj silnú korporáciu</h1>
+      <p class="lead">
+        Vyberte si modul, ktorý odpovedá veľkosti vášho tímu a objemu
+        dokumentov. Cenu vám radi spočítame na mieru.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/sk/">Dohodnúť cenu</a>
+        <a class="btn btn--ghost" href="https://app.signi.com/register">Vyskúšať zadarmo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--4">
+        {tiers.map((tier) => (
+          <div class={tier.featured ? 'price-card price-card--featured' : 'price-card'}>
+            <h3>{tier.name}</h3>
+            <p style="color:var(--muted);font-size:.95rem">{tier.note}</p>
+            {tier.plus && <p style="font-weight:600;margin-top:8px">{tier.plus}:</p>}
+            <ul>
+              {tier.features.map((f) => <li>{f}</li>)}
+            </ul>
+            <a class={tier.featured ? 'btn btn--primary' : 'btn btn--ghost'} href="/sk/">
+              Mám záujem
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Mohlo by vás zaujímať</h2>
+      </div>
+      <div class="grid grid--2">
+        {faq.map(([q, a]) => (
+          <div class="card">
+            <h3>{q}</h3>
+            <p>{a}</p>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:24px">
+        Nenašli ste, čo ste hľadali? Navštívte stránku našej
+        <a href="https://helpdesk.signi.com"> podpory</a>.
+      </p>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="sk"
+    title="Zefektívnite firemné procesy a preveďte 100 % podpisovania do Signi"
+  />
+</Base>

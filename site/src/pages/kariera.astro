@@ -1,0 +1,124 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const reasons = [
+  'Jsme svobodná firma',
+  'Jednáme a mluvíme na rovinu',
+  'Spojuje nás nadšení pro stejnou věc',
+  'Korporátní tanečky nevedeme',
+  'Expandujeme na zahraniční trhy',
+];
+
+const benefits = [
+  'Neomezená dovolená',
+  'Homeoffice',
+  'Peníze navíc',
+  'Seniorní kolegové',
+  'Budget na vzdělávání',
+  'Nekonečná káva a čaj',
+  'Týmové akce',
+  'Lekce angličtiny a multisportka',
+];
+
+const positions = [
+  ['Sales development representative', 'Česká republika — Praha'],
+  ['Sales konzultant', 'Česká republika — Praha'],
+  ['Obchodní zástupce', 'Slovensko'],
+];
+
+const hiring = [
+  ['Napíšeš nám', 'Pošleš nám pár řádků o sobě přes formulář.'],
+  ['Ozveme se ti', 'Co nejdřív se ti ozveme s odpovědí.'],
+  ['Domluvíme si schůzku', 'Najdeme termín, který sedne oběma stranám.'],
+  ['Potkáme se', 'Sejdeme se a poznáme se navzájem.'],
+  ['Podepíšeme smlouvu', 'Pár kliknutí v Signi a je hotovo.'],
+  ['Přidáváš se k nám', 'Vítej v týmu Signi.'],
+];
+---
+
+<Base
+  title="Kariéra | Signi"
+  description="Právě hledáme posily do našeho Signi týmu. Přidejte se k nám a pomozte zbavit svět papírových dokumentů. Kariéra v Signi."
+  lang="cs"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">Kariéra</span>
+      <h1>Signi: Nová práce, nový start</h1>
+      <p class="lead">
+        V Signi děláme, co nás baví — pomáháme firmám s digitalizací. Hledáme
+        posily do týmu. Přidáte se k nám?
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#pozice">Otevřené pozice</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>Důvody proč pracovat pro Signi</h2>
+      </div>
+      <div class="grid grid--3">
+        {reasons.map((title) => (
+          <div class="card"><h3>{title}</h3></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>Na firemní benefity jsme nezapomněli</h2>
+      </div>
+      <div class="grid grid--4">
+        {benefits.map((title) => (
+          <div class="card" style="text-align:center"><strong>{title}</strong></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pozice">
+    <div class="container">
+      <div class="section__head">
+        <h2>Aktuální otevřené pozice</h2>
+      </div>
+      <div class="grid grid--3">
+        {positions.map(([title, place]) => (
+          <div class="card">
+            <span class="eyebrow">{place}</span>
+            <h3>{title}</h3>
+            <p><a href="/odeslat-poptavku/">Mám zájem</a></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <h2>Jak probíhá výběrko</h2>
+      </div>
+      <div class="grid grid--3">
+        {hiring.map(([title, text], i) => (
+          <div class="card">
+            <div class="card__icon">{i + 1}</div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    lang="cs"
+    title="Nenašli jste pozici zrovna pro sebe?"
+    text="Ozvěte se nám i tak — schopné lidi rádi poznáme."
+  />
+</Base>
