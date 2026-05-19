@@ -7,11 +7,21 @@ interface Props {
 }
 const { lang = 'cs' } = Astro.props;
 const t = strings[lang] ?? strings.cs;
+const helpLabel = { cs: 'Nápověda', en: 'Help', sk: 'Nápoveda', hu: 'Súgó' }[lang] ?? 'Nápověda';
 ---
+
+<div class="topbar">
+  <div class="container topbar__inner">
+    <a href="https://helpdesk.signi.com">{helpLabel}</a>
+    <span>Obchodní oddělení: +420 222 260 888</span>
+    <span>Podpora: help@signi.com</span>
+    <a href={url(t.login.href)}>{t.login.label}</a>
+  </div>
+</div>
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand-logo" href={url(homePath[lang])}>Signi</a>
+    <a class="brand-logo" href={url(homePath[lang])}>Signi<span>.com</span></a>
 
     <nav class="site-nav" aria-label="Hlavní navigace">
       {t.nav.map((item) => <a href={url(item.href)}>{item.label}</a>)}
@@ -25,8 +35,8 @@ const t = strings[lang] ?? strings.cs;
           </a>
         ))}
       </div>
-      <a class="btn btn--ghost" href={url(t.login.href)}>{t.login.label}</a>
-      <a class="btn btn--primary" href={url(t.ctaDemo.href)}>{t.ctaDemo.label}</a>
+      <a class="btn btn--ghost" href={url(t.ctaDemo.href)}>{t.ctaDemo.label}</a>
+      <a class="btn btn--primary" href={url(t.ctaTry.href)}>{t.ctaTry.label}</a>
     </div>
   </div>
 </header>

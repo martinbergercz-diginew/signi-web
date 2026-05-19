@@ -21,9 +21,17 @@ export function formatDate(iso) {
 }
 
 const header = `
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <a href="https://helpdesk.signi.com">Nápověda</a>
+      <span>Obchodní oddělení: +420 222 260 888</span>
+      <span>Podpora: help@signi.com</span>
+      <a href="https://app.signi.com/login">Přihlášení</a>
+    </div>
+  </div>
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="brand-logo" href="${p('/')}">Signi</a>
+      <a class="brand-logo" href="${p('/')}">Signi<span>.com</span></a>
       <nav class="site-nav" aria-label="Hlavní navigace">
         <a href="${p('/produkt/')}">Produkt</a>
         <a href="${p('/pro-firmy/')}">Řešení pro firmy</a>
@@ -70,6 +78,9 @@ export function renderPage({
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#7031b4" />
 <link rel="icon" type="image/svg+xml" href="${p('/favicon.svg')}" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" />
 <title>${escapeHtml(title)}</title>
 ${description ? `<meta name="description" content="${escapeHtml(description)}" />` : ''}
 ${canonical ? `<link rel="canonical" href="${escapeHtml(canonical)}" />` : ''}
