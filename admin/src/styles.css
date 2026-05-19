@@ -187,12 +187,17 @@ h1 {
 }
 
 input,
-select {
+select,
+textarea {
   font: inherit;
   padding: 9px 10px;
   border: 1px solid var(--border);
   border-radius: 6px;
   background: #fff;
+}
+
+textarea {
+  resize: vertical;
 }
 
 label {

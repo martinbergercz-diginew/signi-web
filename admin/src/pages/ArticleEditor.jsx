@@ -4,11 +4,24 @@ import { api, uploadImage } from '../api.js';
 import RichText from '../components/RichText.jsx';
 
 const LANGUAGES = ['cs', 'en', 'sk', 'hu'];
+
+// Blog categories — keep in sync with server/src/lib/categories.js.
+const CATEGORIES = [
+  { slug: 'novinky-v-aplikaci', name: 'Novinky v aplikaci' },
+  { slug: 'legislativa', name: 'Legislativa' },
+  { slug: 'pripadove-studie', name: 'Případové studie' },
+  { slug: 'webinare', name: 'Webináře' },
+  { slug: 'ostatni', name: 'Ostatní' },
+  { slug: 'nezarazene', name: 'Nezařazené' },
+];
+
 const EMPTY = {
   title: '',
   slug: '',
   language: 'cs',
   main_image: '',
+  perex: '',
+  category: '',
   content_html: '',
   status: 'draft',
 };
@@ -75,7 +88,11 @@ export default function ArticleEditor() {
     setError('');
     setBusy(true);
     try {
-      const payload = { ...article, main_image: article.main_image || null };
+      const payload = {
+        ...article,
+        main_image: article.main_image || null,
+        category: article.category || null,
+      };
       if (isNew) {
         await api.post('/api/articles', payload);
         navigate('/articles');
@@ -129,7 +146,28 @@ export default function ArticleEditor() {
             <option value="published">Publikováno</option>
           </select>
         </label>
+        <label>
+          Kategorie
+          <select value={article.category || ''} onChange={(e) => set('category', e.target.value)}>
+            <option value="">— bez kategorie —</option>
+            {CATEGORIES.map((c) => (
+              <option key={c.slug} value={c.slug}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
+
+      <label>
+        Perex
+        <textarea
+          rows="3"
+          value={article.perex}
+          onChange={(e) => set('perex', e.target.value)}
+          placeholder="Krátké shrnutí pro výpis článků a RSS."
+        />
+      </label>
 
       <ImageField value={article.main_image} onChange={(v) => set('main_image', v)} />
 
