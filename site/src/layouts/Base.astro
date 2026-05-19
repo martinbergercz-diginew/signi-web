@@ -14,9 +14,15 @@ interface Props {
   lang?: string;
   ogImage?: string;
   alternates?: Alternate[];
+  heroBg?: boolean;
 }
-const { title, description = '', lang = 'cs', ogImage, alternates = [] } = Astro.props;
+const { title, description = '', lang = 'cs', ogImage, alternates = [], heroBg = false } = Astro.props;
 const GTM_ID = 'GTM-WP6ZVZF';
+
+// The homepage carries the pale wave graphic behind the hero (like the live site).
+const bodyStyle = heroBg
+  ? `background-image:url(${url('/img/hp-bg.svg')});background-repeat:no-repeat;background-position:top center;`
+  : undefined;
 
 const OG_LOCALE = { cs: 'cs_CZ', en: 'en_US', sk: 'sk_SK', hu: 'hu_HU' };
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -88,7 +94,7 @@ const orgSchema = {
     {/* Google Tag Manager — container GTM-WP6ZVZF (carried over from WordPress). */}
     <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`} />
   </head>
-  <body>
+  <body style={bodyStyle}>
     {/* Google Tag Manager (noscript) */}
     <noscript>
       <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
