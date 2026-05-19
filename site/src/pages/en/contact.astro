@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/url.js';
 ---
 
 <Base
@@ -34,7 +35,7 @@ import Base from '../../layouts/Base.astro';
             Contact our specialist to find out how Signi can help your business.
             We’ll send you case studies of companies similar to yours.
           </p>
-          <p><a class="btn btn--primary" href="/en/request-demo/">Request a demo</a></p>
+          <p><a class="btn btn--primary" href={url('/en/request-demo/')}>Request a demo</a></p>
         </div>
       </div>
     </div>

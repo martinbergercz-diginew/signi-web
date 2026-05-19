@@ -5,6 +5,7 @@ import { dirname, extname, join } from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import { fileURLToPath } from 'node:url';
 import { requireAuth } from '../lib/auth.js';
+import { p } from '../lib/config.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 export const uploadDir = join(here, '../../data/uploads');
@@ -28,6 +29,6 @@ export default async function uploadRoutes(app) {
     if (file.file.truncated) {
       return reply.code(413).send({ error: 'File too large' });
     }
-    return reply.code(201).send({ url: `/uploads/${name}` });
+    return reply.code(201).send({ url: p(`/uploads/${name}`) });
   });
 }

@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import { url } from '../lib/url.js';
 
 const changes = [
   ['Způsob doručování pracovněprávních dokumentů', 'Dosavadní úprava zákoníku práce v praxi znemožňovala jejich elektronické doručování. Novela toto odstranila a nově máte možnost veškeré HR dokumenty elektronicky doručit.'],
@@ -35,7 +36,7 @@ const faq = [
         plnou digitalizaci vašich HR dokumentů.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="/odeslat-poptavku/">Chci digitalizovat HR</a>
+        <a class="btn btn--primary" href={url('/odeslat-poptavku/')}>Chci digitalizovat HR</a>
       </div>
     </div>
   </section>

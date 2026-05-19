@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { url } from '../lib/url.js';
 ---
 
 <Base
@@ -36,7 +37,7 @@ import Base from '../layouts/Base.astro';
             může Signi pomoct ve vaší firmě, a pošleme vám případové studie
             podobných firem.
           </p>
-          <p><a class="btn btn--primary" href="/odeslat-poptavku/">Domluvit prezentaci</a></p>
+          <p><a class="btn btn--primary" href={url('/odeslat-poptavku/')}>Domluvit prezentaci</a></p>
         </div>
       </div>
     </div>

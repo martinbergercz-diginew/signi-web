@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { url } from '../lib/url.js';
 ---
 
 <Base
@@ -31,7 +32,7 @@ import Base from '../layouts/Base.astro';
           </ul>
         </div>
         <div class="card">
-          <form method="post" action="/api/forms" class="stack">
+          <form method="post" action={url('/api/forms')} class="stack">
             <input type="hidden" name="form_type" value="poptavka" />
             <input type="hidden" name="lang" value="cs" />
             {/* Honeypot — hidden from people, bots fill it and get silently dropped. */}

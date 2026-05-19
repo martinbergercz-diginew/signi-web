@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import { url } from '../lib/url.js';
 
 const integrations = [
   'Prytanis', 'Scholasticus', 'Speybl', 'Cequence',
@@ -33,7 +34,7 @@ const faq = [
         hotové API i konektory pro CRM, DMS i ERP — integrujeme v řádu dnů až týdnů.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="/odeslat-poptavku/">Ozvěte se nám</a>
+        <a class="btn btn--primary" href={url('/odeslat-poptavku/')}>Ozvěte se nám</a>
       </div>
     </div>
   </section>

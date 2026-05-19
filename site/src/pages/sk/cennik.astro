@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { url } from '../../lib/url.js';
 
 const tiers = [
   {
@@ -83,7 +84,7 @@ const faq = [
         dokumentov. Cenu vám radi spočítame na mieru.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="/sk/">Dohodnúť cenu</a>
+        <a class="btn btn--primary" href={url('/sk/')}>Dohodnúť cenu</a>
         <a class="btn btn--ghost" href="https://app.signi.com/register">Vyskúšať zadarmo</a>
       </div>
     </div>
@@ -100,7 +101,7 @@ const faq = [
             <ul>
               {tier.features.map((f) => <li>{f}</li>)}
             </ul>
-            <a class={tier.featured ? 'btn btn--primary' : 'btn btn--ghost'} href="/sk/">
+            <a class={tier.featured ? 'btn btn--primary' : 'btn btn--ghost'} href={url('/sk/')}>
               Mám záujem
             </a>
           </div>

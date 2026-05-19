@@ -1,0 +1,31 @@
+# systemd unit for the signi-web CMS (Fastify: blog SSR, API, form intake).
+# Install to /etc/systemd/system/signi-cms.service on the VPS, then:
+#   systemctl daemon-reload && systemctl enable --now signi-cms
+
+[Unit]
+Description=Signi CMS (blog SSR + API)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/dev/prototypes/signi-web/server
+ExecStart=/usr/bin/node src/index.js
+Restart=on-failure
+RestartSec=3
+
+# Staging configuration. For production set BASE_PATH= and SITE_URL=https://signi.com.
+Environment=NODE_ENV=production
+Environment=PORT=3001
+Environment=BASE_PATH=/prototypes/signi-web
+Environment=SITE_URL=https://dev.signi.com
+Environment=DB_PATH=/var/lib/signi-web/signi.sqlite
+# Secrets — keep out of git. Either set them here or use an EnvironmentFile:
+# EnvironmentFile=/etc/signi-web.env
+Environment=RESEND_API_KEY=
+Environment=MAIL_FROM=Signi <noreply@signi.com>
+Environment=SALES_INBOX=sales@signi.com
+Environment=TURNSTILE_SECRET=
+
+[Install]
+WantedBy=multi-user.target

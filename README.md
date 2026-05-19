@@ -3,10 +3,13 @@
 The signi.com website — fast static marketing pages (Astro) plus a small custom
 CMS (Fastify + SQLite). Replaces the previous WordPress site.
 
-**Status:** Phase 8 — SEO parity (meta / Open Graph / JSON-LD / hreflang, sitemaps, robots, redirect map).
+**Status:** Phase 9 — deploy. Staging-ready: a configurable base path (`BASE_PATH`)
+lets the same build serve the production root or the `dev.signi.com/prototypes/signi-web/`
+staging path. Production cutover is pending.
 
 See [PLAN.md](PLAN.md) for the architecture, decisions, and migration phases.
 See [discovery/](discovery/) for the live-site audit and URL inventory.
+See [deploy/](deploy/) for the Caddy/systemd configs and the deploy script.
 
 ## Structure
 

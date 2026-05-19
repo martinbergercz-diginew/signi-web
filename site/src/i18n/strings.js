@@ -6,13 +6,14 @@ export const LANGS = ['cs', 'en', 'sk', 'hu'];
 export const homePath = { cs: '/', en: '/en/', sk: '/sk/', hu: '/hu/' };
 
 // hreflang alternates for the four language home pages. Only home pages get a
-// full set — interior pages are not 1:1 translations (see discovery).
+// full set — interior pages are not 1:1 translations (see discovery). Paths are
+// base-relative; Base.astro resolves them to absolute URLs.
 export const homeAlternates = [
-  { lang: 'cs', href: 'https://signi.com/' },
-  { lang: 'en', href: 'https://signi.com/en/' },
-  { lang: 'sk', href: 'https://signi.com/sk/' },
-  { lang: 'hu', href: 'https://signi.com/hu/' },
-  { lang: 'x-default', href: 'https://signi.com/' },
+  { lang: 'cs', path: '/' },
+  { lang: 'en', path: '/en/' },
+  { lang: 'sk', path: '/sk/' },
+  { lang: 'hu', path: '/hu/' },
+  { lang: 'x-default', path: '/' },
 ];
 
 export const strings = {

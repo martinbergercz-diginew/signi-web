@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { url } from '../../lib/url.js';
 
 const measures = [
   ['Unique hash keys and HTTPS', 'All data going in and out of Signi is secured with an HTTPS certificate. Documents are protected by unique hash keys that prevent any manipulation of the content.'],
@@ -25,7 +26,7 @@ const measures = [
       </p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
-        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+        <a class="btn btn--ghost" href={url('/en/request-demo/')}>Request a demo</a>
       </div>
     </div>
   </section>

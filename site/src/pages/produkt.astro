@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import { url } from '../lib/url.js';
 
 const capabilities = [
   ['Elektronický podpis', 'Za elektronickým podpisem už nemusíte na poštu. U nás si vyberete přesně ten druh podpisu, který potřebujete. Všechny Signi podpisy splňují vysoké nároky na bezpečnost a jsou v souladu s eIDAS.'],
@@ -36,7 +37,7 @@ const why = [
       </p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="https://app.signi.com/register">Vyzkoušet zdarma</a>
-        <a class="btn btn--ghost" href="/odeslat-poptavku/">Domluvit prezentaci</a>
+        <a class="btn btn--ghost" href={url('/odeslat-poptavku/')}>Domluvit prezentaci</a>
       </div>
     </div>
   </section>

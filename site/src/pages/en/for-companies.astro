@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { url } from '../../lib/url.js';
 
 const oneApp = [
   ['Easy to find and handle', 'Everything is easy to find and handle. The user interface is clear and intuitive.'],
@@ -25,7 +26,7 @@ const oneApp = [
       </p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
-        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+        <a class="btn btn--ghost" href={url('/en/request-demo/')}>Request a demo</a>
       </div>
     </div>
   </section>
@@ -74,7 +75,7 @@ const oneApp = [
       </div>
       <p style="margin-top:24px">
         We are leaders in electronic document completion, trusted by people from
-        more than 2 000 innovative companies. <a href="/en/security/">Find out more
+        more than 2 000 innovative companies. <a href={url('/en/security/')}>Find out more
         about security</a>.
       </p>
     </div>

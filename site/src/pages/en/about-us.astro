@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { url } from '../../lib/url.js';
 
 const history = [
   ['The spark', 'Ondřej hires a lady to clean and then must solve how to sign a contract with her. An idea is born — do it differently, quickly, digitally. Unfortunately, the market was not yet ready.'],
@@ -33,7 +34,7 @@ const team = [
       </p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
-        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+        <a class="btn btn--ghost" href={url('/en/request-demo/')}>Request a demo</a>
       </div>
     </div>
   </section>

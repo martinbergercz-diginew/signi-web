@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
 import { homeAlternates } from '../../i18n/strings.js';
+import { url } from '../../lib/url.js';
 
 const pillars = [
   ['Electronic signature', 'We have the correct electronic signature for every document. So you can get rid of the paperwork without any worries.'],
@@ -36,7 +37,7 @@ const reasons = [
       </p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
-        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+        <a class="btn btn--ghost" href={url('/en/request-demo/')}>Request a demo</a>
       </div>
     </div>
   </section>

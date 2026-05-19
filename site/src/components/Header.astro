@@ -1,5 +1,6 @@
 ---
 import { strings, homePath, LANGS } from '../i18n/strings.js';
+import { url } from '../lib/url.js';
 
 interface Props {
   lang?: string;
@@ -10,22 +11,22 @@ const t = strings[lang] ?? strings.cs;
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand-logo" href={homePath[lang]}>Signi</a>
+    <a class="brand-logo" href={url(homePath[lang])}>Signi</a>
 
     <nav class="site-nav" aria-label="Hlavní navigace">
-      {t.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      {t.nav.map((item) => <a href={url(item.href)}>{item.label}</a>)}
     </nav>
 
     <div class="header-actions">
       <div class="lang-switch" aria-label="Jazyk">
         {LANGS.map((l) => (
-          <a href={homePath[l]} aria-current={l === lang ? 'true' : 'false'}>
+          <a href={url(homePath[l])} aria-current={l === lang ? 'true' : 'false'}>
             {l.toUpperCase()}
           </a>
         ))}
       </div>
-      <a class="btn btn--ghost" href={t.login.href}>{t.login.label}</a>
-      <a class="btn btn--primary" href={t.ctaDemo.href}>{t.ctaDemo.label}</a>
+      <a class="btn btn--ghost" href={url(t.login.href)}>{t.login.label}</a>
+      <a class="btn btn--primary" href={url(t.ctaDemo.href)}>{t.ctaDemo.label}</a>
     </div>
   </div>
 </header>

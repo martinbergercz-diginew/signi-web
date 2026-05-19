@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import { url } from '../lib/url.js';
 
 const documents = [
   'Přehled nejčastěji podepisovaných dokumentů v HR',
@@ -38,7 +39,7 @@ const documents = [
         {documents.map((title) => (
           <div class="card">
             <h3>{title}</h3>
-            <p><a href="/odeslat-poptavku/">Stáhnout materiál</a></p>
+            <p><a href={url('/odeslat-poptavku/')}>Stáhnout materiál</a></p>
           </div>
         ))}
       </div>

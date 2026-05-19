@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { url } from '../lib/url.js';
 ---
 
 <Base
@@ -16,8 +17,8 @@ import Base from '../layouts/Base.astro';
         následujícího pracovního dne.
       </p>
       <div class="hero__actions" style="justify-content:center">
-        <a class="btn btn--primary" href="/">Zpět na úvod</a>
-        <a class="btn btn--ghost" href="/blog/">Číst blog</a>
+        <a class="btn btn--primary" href={url('/')}>Zpět na úvod</a>
+        <a class="btn btn--ghost" href={url('/blog/')}>Číst blog</a>
       </div>
     </div>
   </section>

@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import { url } from '../lib/url.js';
 
 const blocks = [
   ['Digitální podepisování pro různé obory', 'Nezáleží na tom, v jakém segmentu se pohybujete. Firemní dokumenty můžete digitalizovat napříč obory — od automotive po zdravotnictví.'],
@@ -32,7 +33,7 @@ const cases = [
         Flexibilní a rychlé řešení pro firmy napříč obory.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="/odeslat-poptavku/">Domluvit prezentaci</a>
+        <a class="btn btn--primary" href={url('/odeslat-poptavku/')}>Domluvit prezentaci</a>
         <a class="btn btn--ghost" href="https://app.signi.com/register">Vyzkoušet zdarma</a>
       </div>
     </div>

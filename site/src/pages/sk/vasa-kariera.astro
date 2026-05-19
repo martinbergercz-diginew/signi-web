@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { url } from '../../lib/url.js';
 
 const reasons = [
   ['Sme slobodná firma', 'To ale neznamená, že si každý robí, čo chce. Neobmedzujeme sa zbytočnými pravidlami a kontrolami. Každý ale presne vie, akú má úlohu a kedy ju má splniť.'],
@@ -102,7 +103,7 @@ const hiring = [
           <div class="card">
             <span class="eyebrow">{place}</span>
             <h3>{title}</h3>
-            <p><a href="/sk/">Mám záujem</a></p>
+            <p><a href={url('/sk/')}>Mám záujem</a></p>
           </div>
         ))}
       </div>

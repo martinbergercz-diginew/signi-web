@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { url } from '../../lib/url.js';
 
 const capabilities = [
   ['Electronic signature', 'You no longer need to go to the post office for an electronic signature. With us, you choose exactly the type of signature you need. All Signi signatures meet high standards for security and are eIDAS-compliant.'],
@@ -36,7 +37,7 @@ const why = [
       </p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="https://app.signi.com/register">Try for free</a>
-        <a class="btn btn--ghost" href="/en/request-demo/">Request a demo</a>
+        <a class="btn btn--ghost" href={url('/en/request-demo/')}>Request a demo</a>
       </div>
     </div>
   </section>

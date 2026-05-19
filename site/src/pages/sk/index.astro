@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
 import { homeAlternates } from '../../i18n/strings.js';
+import { url } from '../../lib/url.js';
 
 const reasons = [
   ['Právna záväznosť podpísaných dokumentov', 'Papierovanie patrí do minulosti. Rovnako ako guľaté razítko. Elektronický podpis Signi má rovnakú váhu ako ten na papieri a je právne záväzný.'],
@@ -46,7 +47,7 @@ const partners = [
       </p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="https://app.signi.com/register">Vyskúšať zadarmo</a>
-        <a class="btn btn--ghost" href="/sk/">Dohodnúť prezentáciu</a>
+        <a class="btn btn--ghost" href={url('/sk/')}>Dohodnúť prezentáciu</a>
       </div>
       <p style="margin-top:28px;color:var(--muted);font-size:.95rem">
         Dôverujú nám ľudia z viac ako 2 000 inovatívnych spoločností.

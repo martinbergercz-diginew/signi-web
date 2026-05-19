@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { url } from '../../lib/url.js';
 
 const dna = [
   'We are a small, flexible company with fast decision-making processes and the drive to succeed.',
@@ -118,7 +119,7 @@ const positions = [
           <div class="card">
             <span class="eyebrow">{place}</span>
             <h3>{title}</h3>
-            <p><a href="/en/contact/">I'm interested</a></p>
+            <p><a href={url('/en/contact/')}>I'm interested</a></p>
           </div>
         ))}
       </div>

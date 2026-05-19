@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { url } from '../../lib/url.js';
 
 const tiers = [
   {
@@ -76,7 +77,7 @@ const faq = [
         your documents. We’ll happily calculate a tailored price for you.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="/en/request-demo/">Request a demo</a>
+        <a class="btn btn--primary" href={url('/en/request-demo/')}>Request a demo</a>
         <a class="btn btn--ghost" href="https://app.signi.com/register">Try for free</a>
       </div>
     </div>
@@ -93,7 +94,7 @@ const faq = [
             <ul>
               {tier.features.map((f) => <li>{f}</li>)}
             </ul>
-            <a class={tier.featured ? 'btn btn--primary' : 'btn btn--ghost'} href="/en/request-demo/">
+            <a class={tier.featured ? 'btn btn--primary' : 'btn btn--ghost'} href={url('/en/request-demo/')}>
               I’m interested
             </a>
           </div>
@@ -102,7 +103,7 @@ const faq = [
       <p style="margin-top:24px">
         Not sure which subscription is right for your situation? Need an
         individual approach — identification with BankID, SSO, advanced branding
-        or an on-premise solution? <a href="/en/request-demo/">Get in touch</a> and
+        or an on-premise solution? <a href={url('/en/request-demo/')}>Get in touch</a> and
         we’ll find the right fit.
       </p>
     </div>

@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/url.js';
 ---
 
 <Base
@@ -16,8 +17,8 @@ import Base from '../../layouts/Base.astro';
         usually by the next business day.
       </p>
       <div class="hero__actions" style="justify-content:center">
-        <a class="btn btn--primary" href="/en/">Back to home</a>
-        <a class="btn btn--ghost" href="/en/blog-2/">Read the blog</a>
+        <a class="btn btn--primary" href={url('/en/')}>Back to home</a>
+        <a class="btn btn--ghost" href={url('/en/blog-2/')}>Read the blog</a>
       </div>
     </div>
   </section>

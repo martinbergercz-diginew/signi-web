@@ -1,5 +1,7 @@
 // HTML shell for the SSR blog — header, footer, GTM, matching the public site.
 
+import { SITE, p } from '../lib/config.js';
+
 const GTM_ID = 'GTM-WP6ZVZF';
 
 export function escapeHtml(value) {
@@ -21,14 +23,14 @@ export function formatDate(iso) {
 const header = `
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="brand-logo" href="/">Signi</a>
+      <a class="brand-logo" href="${p('/')}">Signi</a>
       <nav class="site-nav" aria-label="Hlavní navigace">
-        <a href="/produkt/">Produkt</a>
-        <a href="/pro-firmy/">Řešení pro firmy</a>
-        <a href="/cenik/">Ceník</a>
-        <a href="/blog/">Blog</a>
+        <a href="${p('/produkt/')}">Produkt</a>
+        <a href="${p('/pro-firmy/')}">Řešení pro firmy</a>
+        <a href="${p('/cenik/')}">Ceník</a>
+        <a href="${p('/blog/')}">Blog</a>
       </nav>
-      <a class="btn" href="/odeslat-poptavku/">Domluvit prezentaci</a>
+      <a class="btn" href="${p('/odeslat-poptavku/')}">Domluvit prezentaci</a>
     </div>
   </header>`;
 
@@ -36,7 +38,7 @@ const footer = `
   <footer class="site-footer">
     <div class="container site-footer__inner">
       <span>© ${new Date().getFullYear()} Digital factory s.r.o. — všechna práva vyhrazena.</span>
-      <span><a href="/blog/rss.xml">RSS</a> · <a href="/">signi.com</a></span>
+      <span><a href="${p('/blog/rss.xml')}">RSS</a> · <a href="${p('/')}">signi.com</a></span>
     </div>
   </footer>`;
 
@@ -56,8 +58,8 @@ export function renderPage({
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'Signi',
-      url: 'https://signi.com/',
-      logo: 'https://signi.com/favicon.svg',
+      url: `${SITE}/`,
+      logo: `${SITE}/favicon.svg`,
     },
     ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []),
   ];
@@ -67,7 +69,7 @@ export function renderPage({
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#7031b4" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="${p('/favicon.svg')}" />
 <title>${escapeHtml(title)}</title>
 ${description ? `<meta name="description" content="${escapeHtml(description)}" />` : ''}
 ${canonical ? `<link rel="canonical" href="${escapeHtml(canonical)}" />` : ''}
@@ -81,8 +83,8 @@ ${ogImage ? `<meta property="og:image" content="${escapeHtml(ogImage)}" />` : ''
 <meta name="twitter:card" content="${ogImage ? 'summary_large_image' : 'summary'}" />
 <meta name="twitter:title" content="${escapeHtml(title)}" />
 ${ogImage ? `<meta name="twitter:image" content="${escapeHtml(ogImage)}" />` : ''}
-<link rel="alternate" type="application/rss+xml" title="Signi blog" href="/blog/rss.xml" />
-<link rel="stylesheet" href="/blog/styles.css" />
+<link rel="alternate" type="application/rss+xml" title="Signi blog" href="${p('/blog/rss.xml')}" />
+<link rel="stylesheet" href="${p('/blog/styles.css')}" />
 <script type="application/ld+json">${JSON.stringify(schemas)}</script>
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}

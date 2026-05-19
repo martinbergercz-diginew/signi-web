@@ -1,12 +1,13 @@
 import { db } from '../db/index.js';
 import { rateLimit } from '../lib/rate-limit.js';
 import { sendMail, SALES_INBOX } from '../lib/mail.js';
+import { p } from '../lib/config.js';
 
 // Public form intake. Stores the submission and emails the sales inbox plus an
 // autoresponder to the visitor, then redirects to the thank-you page so GTM
 // conversion tracking fires there.
 
-const THANK_YOU = { cs: '/dekujeme/', en: '/en/thank-you/' };
+const THANK_YOU = { cs: p('/dekujeme/'), en: p('/en/thank-you/') };
 const HONEYPOT = 'website'; // bots fill hidden fields; humans never see this one
 const TURNSTILE_SECRET = process.env.TURNSTILE_SECRET ?? '';
 

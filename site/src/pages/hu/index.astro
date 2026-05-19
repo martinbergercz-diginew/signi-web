@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
 import { homeAlternates } from '../../i18n/strings.js';
+import { url } from '../../lib/url.js';
 
 const reasons = [
   ['Az aláírt dokumentumok jogi érvényessége', 'A papírmunka a múlté. Akárcsak a bélyegző. Az elektronikus aláírás a Signiben ugyanolyan hiteles, mint a papíralapú, és jogilag kötelező érvényű.'],
@@ -38,7 +39,7 @@ const features = [
       </p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="https://app.signi.com/register">Ingyenes kipróbálás</a>
-        <a class="btn btn--ghost" href="/hu/">Bemutató igénylése</a>
+        <a class="btn btn--ghost" href={url('/hu/')}>Bemutató igénylése</a>
       </div>
       <p style="margin-top:28px;color:var(--muted);font-size:.95rem">
         Több mint 1 200 innovatív vállalat munkatársai bíznak bennünk.

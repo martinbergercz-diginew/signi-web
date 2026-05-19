@@ -1,0 +1,60 @@
+# signi-web — Caddy routing.
+#
+# This is a snippet, not a standalone Caddyfile. Paste the block below inside
+# the existing `dev.signi.com { ... }` site block on the VPS (the same block
+# that already serves the other prototypes).
+#
+# Routing under /prototypes/signi-web/:
+#   - api, blog, category, uploads  -> the Fastify CMS (Node, port 3001)
+#   - admin                         -> the admin panel SPA (static)
+#   - everything else               -> the Astro marketing site (static)
+#
+# The Fastify app runs with BASE_PATH=/prototypes/signi-web, so its routes
+# already include the prefix — these proxy `handle` blocks must NOT strip it.
+# The static `handle_path` blocks DO strip it, because the built files sit at
+# the root of their deployed directory.
+
+route /prototypes/signi-web/* {
+	handle /prototypes/signi-web/api/* {
+		reverse_proxy localhost:3001
+	}
+	handle /prototypes/signi-web/blog/* {
+		reverse_proxy localhost:3001
+	}
+	handle /prototypes/signi-web/category/* {
+		reverse_proxy localhost:3001
+	}
+	handle /prototypes/signi-web/uploads/* {
+		reverse_proxy localhost:3001
+	}
+
+	handle_path /prototypes/signi-web/admin/* {
+		root * /var/www/dev/prototypes/signi-web/admin
+		try_files {path} /index.html
+		file_server
+	}
+
+	handle_path /prototypes/signi-web/* {
+		root * /var/www/dev/prototypes/signi-web/site
+		try_files {path} {path}/index.html /404.html
+		file_server
+	}
+}
+
+# --- Production (signi.com) ----------------------------------------------
+# At the production root BASE_PATH is empty. The site block then looks like:
+#
+# signi.com {
+#     handle /api/*      { reverse_proxy localhost:3001 }
+#     handle /blog/*     { reverse_proxy localhost:3001 }
+#     handle /category/* { reverse_proxy localhost:3001 }
+#     handle /uploads/*  { reverse_proxy localhost:3001 }
+#     handle /admin/*    { root * /var/www/signi-web/admin; try_files {path} /index.html; file_server }
+#     handle {
+#         root * /var/www/signi-web/site
+#         import /etc/caddy/signi-redirects.caddy   # deploy/redirects.caddy
+#         try_files {path} {path}/index.html /404.html
+#         file_server
+#     }
+#     # /wp-content/uploads/* must keep resolving — see deploy/README.md.
+# }

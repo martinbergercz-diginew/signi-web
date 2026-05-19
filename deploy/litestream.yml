@@ -1,0 +1,26 @@
+# Litestream — continuous backup of the CMS SQLite database.
+# Install to /etc/litestream.yml on the VPS, then:
+#   systemctl enable --now litestream
+#
+# Litestream streams the WAL to a replica; on data loss you restore with
+#   litestream restore -o /var/lib/signi-web/signi.sqlite "<replica-url>"
+#
+# Pick ONE replica below and fill in the credentials. S3 (or any
+# S3-compatible store such as Backblaze B2) is recommended; the local-disk
+# replica is only a fallback and does not protect against disk failure.
+
+dbs:
+  - path: /var/lib/signi-web/signi.sqlite
+    replicas:
+      # --- S3 / S3-compatible (recommended) ---
+      - type: s3
+        bucket: CHANGEME-signi-web-backups
+        path: signi.sqlite
+        # endpoint: s3.eu-central-003.backblazeb2.com   # for B2 / non-AWS
+        # region: eu-central-1
+        # access-key-id and secret-access-key via env:
+        #   LITESTREAM_ACCESS_KEY_ID / LITESTREAM_SECRET_ACCESS_KEY
+
+      # --- Local disk (fallback only) ---
+      # - type: file
+      #   path: /var/backups/signi-web/signi.sqlite

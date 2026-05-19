@@ -1,5 +1,9 @@
+// The API lives next to the admin panel, at `${BASE_PATH}/api/...`. BASE_URL
+// is `${BASE_PATH}/admin/`, so dropping the `/admin/` suffix yields BASE_PATH.
+const API_BASE = import.meta.env.BASE_URL.replace(/\/admin\/?$/, '');
+
 async function request(path, options = {}) {
-  const res = await fetch(path, {
+  const res = await fetch(API_BASE + path, {
     credentials: 'include',
     headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
     ...options,
@@ -21,7 +25,7 @@ export const api = {
 export async function uploadImage(file) {
   const form = new FormData();
   form.append('file', file);
-  const res = await fetch('/api/uploads', {
+  const res = await fetch(`${API_BASE}/api/uploads`, {
     method: 'POST',
     credentials: 'include',
     body: form,

@@ -2,10 +2,11 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { url } from '../lib/url.js';
 
 interface Alternate {
   lang: string;
-  href: string;
+  path: string;
 }
 interface Props {
   title: string;
@@ -19,14 +20,17 @@ const GTM_ID = 'GTM-WP6ZVZF';
 
 const OG_LOCALE = { cs: 'cs_CZ', en: 'en_US', sk: 'sk_SK', hu: 'hu_HU' };
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : null;
+const ogImageUrl = ogImage ? new URL(url(ogImage), Astro.site).href : null;
+
+// Only the production domain is indexable; staging stays out of search results.
+const indexable = Astro.site?.hostname === 'signi.com';
 
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Signi',
-  url: Astro.site?.href ?? 'https://signi.com/',
-  logo: new URL('/favicon.svg', Astro.site).href,
+  url: new URL(url('/'), Astro.site).href,
+  logo: new URL(url('/favicon.svg'), Astro.site).href,
   description: 'Elektronický podpis dokumentů online.',
 };
 ---
@@ -37,13 +41,14 @@ const orgSchema = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#7031b4" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {!indexable && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonical} />
 
     {alternates.map((a) => (
-      <link rel="alternate" hreflang={a.lang} href={a.href} />
+      <link rel="alternate" hreflang={a.lang} href={new URL(url(a.path), Astro.site).href} />
     ))}
 
     <meta property="og:type" content="website" />

@@ -2,11 +2,11 @@ import { db } from '../db/index.js';
 import { BLOG_CSS } from '../blog/styles.js';
 import { renderPage, escapeHtml, formatDate } from '../blog/layout.js';
 import { CATEGORIES, categoryName, isCategory } from '../lib/categories.js';
+import { SITE, p } from '../lib/config.js';
 
 // The public blog is Czech-only — see discovery/url-inventory.md.
 const LANG = 'cs';
 const PER_PAGE = 12;
-const SITE = process.env.SITE_URL ?? 'https://signi.com';
 
 const listPublished = db.prepare(
   `SELECT * FROM articles
@@ -28,30 +28,33 @@ function categoryBar(activeSlug) {
   const chip = (href, label, active) =>
     `<a class="chip" href="${href}"${active ? ' aria-current="true"' : ''}>${escapeHtml(label)}</a>`;
   return `<div class="cat-bar">
-    ${chip('/blog/', 'Všechny články', !activeSlug)}
-    ${CATEGORIES.map((c) => chip(`/category/${c.slug}/`, c.name, c.slug === activeSlug)).join('\n    ')}
+    ${chip(p('/blog/'), 'Všechny články', !activeSlug)}
+    ${CATEGORIES.map((c) => chip(p(`/category/${c.slug}/`), c.name, c.slug === activeSlug)).join('\n    ')}
   </div>`;
 }
 
 function postCard(a) {
-  const cat = categoryName(a.category);
+  const href = p(`/blog/${escapeHtml(a.slug)}/`);
   const img = a.main_image
-    ? `<a href="/blog/${escapeHtml(a.slug)}/"><img class="post-card__img" src="${escapeHtml(a.main_image)}" alt="" loading="lazy" /></a>`
-    : `<a href="/blog/${escapeHtml(a.slug)}/"><span class="post-card__img"></span></a>`;
+    ? `<a href="${href}"><img class="post-card__img" src="${escapeHtml(a.main_image)}" alt="" loading="lazy" /></a>`
+    : `<a href="${href}"><span class="post-card__img"></span></a>`;
   return `<article class="post-card">
     ${img}
     <div class="post-card__body">
-      <div class="post-card__meta">${[cat, formatDate(a.published_at || a.created_at)].filter(Boolean).map(escapeHtml).join(' · ')}</div>
-      <h3><a href="/blog/${escapeHtml(a.slug)}/">${escapeHtml(a.title)}</a></h3>
+      <div class="post-card__meta">${[cat(a), formatDate(a.published_at || a.created_at)].filter(Boolean).map(escapeHtml).join(' · ')}</div>
+      <h3><a href="${href}">${escapeHtml(a.title)}</a></h3>
       ${a.perex ? `<p>${escapeHtml(a.perex)}</p>` : ''}
       <span class="post-card__more">Číst dál →</span>
     </div>
   </article>`;
 }
+function cat(a) {
+  return categoryName(a.category);
+}
 
 function pagination(basePath, page, totalPages) {
   if (totalPages <= 1) return '';
-  const link = (p, label) => `<a href="${basePath}${p > 1 ? `?page=${p}` : ''}">${label}</a>`;
+  const link = (n, label) => `<a href="${basePath}${n > 1 ? `?page=${n}` : ''}">${label}</a>`;
   return `<nav class="pagination" aria-label="Stránkování">
     ${page > 1 ? link(page - 1, '← Novější') : ''}
     <span>Strana ${page} z ${totalPages}</span>
@@ -103,12 +106,12 @@ export default async function blogRoutes(app) {
     const items = listPublished.all(LANG, { category: null, limit: 30, offset: 0 });
     const xmlItems = items
       .map((a) => {
-        const url = `${SITE}/blog/${a.slug}/`;
+        const link = `${SITE}/blog/${a.slug}/`;
         const date = new Date(a.published_at || a.created_at).toUTCString();
         return `    <item>
       <title>${escapeHtml(a.title)}</title>
-      <link>${escapeHtml(url)}</link>
-      <guid isPermaLink="true">${escapeHtml(url)}</guid>
+      <link>${escapeHtml(link)}</link>
+      <guid isPermaLink="true">${escapeHtml(link)}</guid>
       <pubDate>${date}</pubDate>
       ${a.category ? `<category>${escapeHtml(categoryName(a.category) ?? a.category)}</category>` : ''}
       <description>${escapeHtml(a.perex)}</description>
@@ -135,12 +138,12 @@ ${xmlItems}
           WHERE status = 'published' AND language = ? ORDER BY d DESC`,
       )
       .all(LANG);
-    const url = (loc, lastmod) =>
+    const entry = (loc, lastmod) =>
       `  <url><loc>${escapeHtml(loc)}</loc>${lastmod ? `<lastmod>${new Date(lastmod).toISOString()}</lastmod>` : ''}</url>`;
     const entries = [
-      url(`${SITE}/blog/`),
-      ...CATEGORIES.map((c) => url(`${SITE}/category/${c.slug}/`)),
-      ...posts.map((p) => url(`${SITE}/blog/${p.slug}/`, p.d)),
+      entry(`${SITE}/blog/`),
+      ...CATEGORIES.map((c) => entry(`${SITE}/category/${c.slug}/`)),
+      ...posts.map((post) => entry(`${SITE}/blog/${post.slug}/`, post.d)),
     ];
     reply.type('application/xml; charset=utf-8');
     return `<?xml version="1.0" encoding="UTF-8"?>
@@ -161,7 +164,7 @@ ${entries.join('\n')}
         heading: 'Novinky ze světa digitálního podepisování',
         lead: 'Píšeme o tom, jak se posunout od papírů k digitálním dokumentům.',
         activeCategory: null,
-        basePath: '/blog/',
+        basePath: p('/blog/'),
         page,
       }),
     });
@@ -182,7 +185,7 @@ ${entries.join('\n')}
         heading: name,
         lead: '',
         activeCategory: slug,
-        basePath: `/category/${slug}/`,
+        basePath: p(`/category/${slug}/`),
         page,
       }),
     });
@@ -193,9 +196,9 @@ ${entries.join('\n')}
     if (!article) return reply.code(404).type('text/html').send(notFound());
     reply.type('text/html; charset=utf-8');
 
-    const cat = categoryName(article.category);
+    const name = categoryName(article.category);
     const meta = [
-      cat ? `<a href="/category/${escapeHtml(article.category)}/">${escapeHtml(cat)}</a>` : '',
+      name ? `<a href="${p(`/category/${escapeHtml(article.category)}/`)}">${escapeHtml(name)}</a>` : '',
       escapeHtml(formatDate(article.published_at || article.created_at)),
     ]
       .filter(Boolean)
@@ -212,7 +215,7 @@ ${entries.join('\n')}
     <div class="container narrow">
       ${article.main_image ? `<img class="post-cover" src="${escapeHtml(article.main_image)}" alt="" />` : ''}
       <div class="prose">${article.content_html}</div>
-      <a class="back-link" href="/blog/">← Zpět na blog</a>
+      <a class="back-link" href="${p('/blog/')}">← Zpět na blog</a>
     </div>
   </article>`;
 
@@ -251,7 +254,7 @@ function notFound() {
     body: `<section class="section"><div class="container narrow">
       <h1>Stránka nenalezena</h1>
       <p>Tento článek neexistuje nebo byl přesunut.</p>
-      <a class="back-link" href="/blog/">← Zpět na blog</a>
+      <a class="back-link" href="${p('/blog/')}">← Zpět na blog</a>
     </div></section>`,
   });
 }

@@ -1,5 +1,6 @@
 ---
 import { strings } from '../i18n/strings.js';
+import { url } from '../lib/url.js';
 
 interface Props {
   lang?: string;
@@ -21,7 +22,7 @@ const year = new Date().getFullYear();
           <h4>{col.title}</h4>
           <ul>
             {col.links.map((link) => (
-              <li><a href={link.href}>{link.label}</a></li>
+              <li><a href={url(link.href)}>{link.label}</a></li>
             ))}
           </ul>
         </div>
