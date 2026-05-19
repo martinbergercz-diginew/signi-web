@@ -34,8 +34,14 @@ import Base from '../../layouts/Base.astro';
           </p>
         </div>
         <div class="card">
-          {/* Form endpoint (POST /api/submissions) + spam protection are wired in Phase 7. */}
-          <form method="post" action="#" class="stack">
+          <form method="post" action="/api/forms" class="stack">
+            <input type="hidden" name="form_type" value="request-demo" />
+            <input type="hidden" name="lang" value="en" />
+            {/* Honeypot — hidden from people, bots fill it and get silently dropped. */}
+            <div class="hp" aria-hidden="true">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
             <div>
               <label for="name">Full name</label>
               <input id="name" name="name" type="text" required />
@@ -75,4 +81,5 @@ import Base from '../../layouts/Base.astro';
     color: var(--ink);
   }
   input:focus, textarea:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 </style>

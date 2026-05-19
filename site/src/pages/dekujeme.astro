@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Děkujeme | Signi"
+  description="Vaši poptávku jsme přijali. Ozve se vám náš specialista."
+  lang="cs"
+>
+  <section class="section">
+    <div class="container narrow text-center" style="max-width:680px;margin:0 auto">
+      <span class="eyebrow">Hotovo</span>
+      <h1>Děkujeme, máme vaši zprávu</h1>
+      <p class="lead">
+        Vaši poptávku jsme přijali. Ozve se vám náš specialista, obvykle do
+        následujícího pracovního dne.
+      </p>
+      <div class="hero__actions" style="justify-content:center">
+        <a class="btn btn--primary" href="/">Zpět na úvod</a>
+        <a class="btn btn--ghost" href="/blog/">Číst blog</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+{/* Fire the GTM conversion event — preserves the lead tracking the CF7
+    thank-you pages drove on the old WordPress site. */}
+<script is:inline>
+  (function () {
+    var form = new URLSearchParams(location.search).get('form') || 'contact';
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'generate_lead', form_type: form });
+  })();
+</script>

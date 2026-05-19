@@ -31,8 +31,14 @@ import Base from '../layouts/Base.astro';
           </ul>
         </div>
         <div class="card">
-          {/* Form endpoint (POST /api/submissions) + spam protection are wired in Phase 7. */}
-          <form method="post" action="#" class="stack">
+          <form method="post" action="/api/forms" class="stack">
+            <input type="hidden" name="form_type" value="poptavka" />
+            <input type="hidden" name="lang" value="cs" />
+            {/* Honeypot — hidden from people, bots fill it and get silently dropped. */}
+            <div class="hp" aria-hidden="true">
+              <label for="website">Web</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
             <div>
               <label for="name">Jméno a příjmení</label>
               <input id="name" name="name" type="text" required />
@@ -72,4 +78,5 @@ import Base from '../layouts/Base.astro';
     color: var(--ink);
   }
   input:focus, textarea:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 </style>
