@@ -9,23 +9,24 @@ After=network.target
 [Service]
 Type=simple
 User=www-data
-WorkingDirectory=/var/www/dev/prototypes/signi-web/server
+WorkingDirectory=/srv/signi-web-cms
 ExecStart=/usr/bin/node src/index.js
 Restart=on-failure
 RestartSec=3
 
-# Staging configuration. For production set BASE_PATH= and SITE_URL=https://signi.com.
+# Staging configuration (dev.signi.com/prototypes/signi-web/).
+# For production set BASE_PATH= (empty) and SITE_URL=https://signi.com.
 Environment=NODE_ENV=production
-Environment=PORT=3001
+Environment=HOST=127.0.0.1
+Environment=PORT=8788
 Environment=BASE_PATH=/prototypes/signi-web
 Environment=SITE_URL=https://dev.signi.com
 Environment=DB_PATH=/var/lib/signi-web/signi.sqlite
-# Secrets — keep out of git. Either set them here or use an EnvironmentFile:
-# EnvironmentFile=/etc/signi-web.env
-Environment=RESEND_API_KEY=
 Environment=MAIL_FROM=Signi <noreply@signi.com>
 Environment=SALES_INBOX=sales@signi.com
-Environment=TURNSTILE_SECRET=
+# Secrets — set when activated. Without RESEND_API_KEY form mail is logged only.
+# Environment=RESEND_API_KEY=
+# Environment=TURNSTILE_SECRET=
 
 [Install]
 WantedBy=multi-user.target

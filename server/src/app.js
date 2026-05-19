@@ -30,7 +30,7 @@ export async function buildApp() {
     decorateReply: false,
   });
 
-  app.get(`${BASE_PATH}/health`, async () => ({ ok: true }));
+  app.get(`${BASE_PATH}/api/health`, async () => ({ ok: true }));
 
   const routes = [
     authRoutes,
