@@ -80,7 +80,7 @@ export function renderPage({
 <link rel="icon" type="image/svg+xml" href="${p('/favicon.svg')}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:ital,wght@0,400;1,500;1,700&display=swap" />
 <title>${escapeHtml(title)}</title>
 ${description ? `<meta name="description" content="${escapeHtml(description)}" />` : ''}
 ${canonical ? `<link rel="canonical" href="${escapeHtml(canonical)}" />` : ''}

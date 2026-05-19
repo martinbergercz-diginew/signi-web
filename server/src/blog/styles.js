@@ -50,10 +50,10 @@ img { max-width: 100%; height: auto; }
 .brand-logo:hover { text-decoration: none; }
 .brand-logo span { color: var(--accent-dark); }
 .site-nav { display: flex; gap: 32px; margin: 0 auto; }
-.site-nav a { color: var(--ink); font-weight: 500; font-size: 1rem; }
+.site-nav a { color: var(--ink); font-weight: 400; font-size: 1rem; }
 .site-nav a:hover { color: var(--brand); }
 .btn { display: inline-flex; align-items: center; padding: 13px 26px; border-radius: var(--radius-sm);
-  font-weight: 500; font-size: 1rem; background: var(--brand);
+  font-weight: 400; font-size: 1rem; background: var(--brand);
   color: #fff; border: 2px solid var(--brand); box-shadow: 0 10px 22px rgba(112,49,180,.28); }
 .btn:hover { background: var(--brand-dark); border-color: var(--brand-dark); text-decoration: none; }
 
