@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { homeAlternates } from '../../i18n/strings.js';
 
 const pillars = [
   ['Electronic signature', 'We have the correct electronic signature for every document. So you can get rid of the paperwork without any worries.'],
@@ -23,6 +24,7 @@ const reasons = [
   title="Signi is everything you need to agree | Signi"
   description="Digitize 100 % of your documents and processes. Create, approve, sign and archive documents — all electronically, in one application."
   lang="en"
+  alternates={homeAlternates}
 >
   <section class="hero">
     <div class="container hero__inner">

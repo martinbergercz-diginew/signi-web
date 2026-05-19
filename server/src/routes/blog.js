@@ -128,6 +128,27 @@ ${xmlItems}
 </rss>`;
   });
 
+  app.get('/blog/sitemap.xml', async (request, reply) => {
+    const posts = db
+      .prepare(
+        `SELECT slug, COALESCE(published_at, created_at) AS d FROM articles
+          WHERE status = 'published' AND language = ? ORDER BY d DESC`,
+      )
+      .all(LANG);
+    const url = (loc, lastmod) =>
+      `  <url><loc>${escapeHtml(loc)}</loc>${lastmod ? `<lastmod>${new Date(lastmod).toISOString()}</lastmod>` : ''}</url>`;
+    const entries = [
+      url(`${SITE}/blog/`),
+      ...CATEGORIES.map((c) => url(`${SITE}/category/${c.slug}/`)),
+      ...posts.map((p) => url(`${SITE}/blog/${p.slug}/`, p.d)),
+    ];
+    reply.type('application/xml; charset=utf-8');
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries.join('\n')}
+</urlset>`;
+  });
+
   app.get('/blog/', async (request, reply) => {
     const page = pageNumber(request.query);
     reply.type('text/html; charset=utf-8');
@@ -195,10 +216,30 @@ ${xmlItems}
     </div>
   </article>`;
 
+    const publishedAt = article.published_at || article.created_at;
+    const blogPosting = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: article.title,
+      datePublished: publishedAt,
+      dateModified: article.updated_at || publishedAt,
+      mainEntityOfPage: `${SITE}/blog/${article.slug}/`,
+      publisher: {
+        '@type': 'Organization',
+        name: 'Signi',
+        logo: { '@type': 'ImageObject', url: `${SITE}/favicon.svg` },
+      },
+      ...(article.perex ? { description: article.perex } : {}),
+      ...(article.main_image ? { image: article.main_image } : {}),
+    };
+
     return renderPage({
       title: `${article.title} | Signi blog`,
       description: article.perex,
       canonical: `${SITE}/blog/${article.slug}/`,
+      ogType: 'article',
+      ogImage: article.main_image || '',
+      jsonLd: blogPosting,
       body,
     });
   });

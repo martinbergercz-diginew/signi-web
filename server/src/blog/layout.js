@@ -41,20 +41,49 @@ const footer = `
   </footer>`;
 
 // description and canonical are optional.
-export function renderPage({ title, description = '', canonical = '', body }) {
+// jsonLd may be an object or an array of objects; ogType/ogImage are optional.
+export function renderPage({
+  title,
+  description = '',
+  canonical = '',
+  ogType = 'website',
+  ogImage = '',
+  jsonLd,
+  body,
+}) {
+  const schemas = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Signi',
+      url: 'https://signi.com/',
+      logo: 'https://signi.com/favicon.svg',
+    },
+    ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []),
+  ];
   return `<!doctype html>
 <html lang="cs">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#7031b4" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <title>${escapeHtml(title)}</title>
 ${description ? `<meta name="description" content="${escapeHtml(description)}" />` : ''}
+${canonical ? `<link rel="canonical" href="${escapeHtml(canonical)}" />` : ''}
+<meta property="og:type" content="${escapeHtml(ogType)}" />
 <meta property="og:title" content="${escapeHtml(title)}" />
 ${description ? `<meta property="og:description" content="${escapeHtml(description)}" />` : ''}
-${canonical ? `<link rel="canonical" href="${escapeHtml(canonical)}" />` : ''}
+${canonical ? `<meta property="og:url" content="${escapeHtml(canonical)}" />` : ''}
+<meta property="og:site_name" content="Signi" />
+<meta property="og:locale" content="cs_CZ" />
+${ogImage ? `<meta property="og:image" content="${escapeHtml(ogImage)}" />` : ''}
+<meta name="twitter:card" content="${ogImage ? 'summary_large_image' : 'summary'}" />
+<meta name="twitter:title" content="${escapeHtml(title)}" />
+${ogImage ? `<meta name="twitter:image" content="${escapeHtml(ogImage)}" />` : ''}
 <link rel="alternate" type="application/rss+xml" title="Signi blog" href="/blog/rss.xml" />
 <link rel="stylesheet" href="/blog/styles.css" />
+<script type="application/ld+json">${JSON.stringify(schemas)}</script>
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});

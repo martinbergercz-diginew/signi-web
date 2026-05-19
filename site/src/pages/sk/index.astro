@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { homeAlternates } from '../../i18n/strings.js';
 
 const reasons = [
   ['Právna záväznosť podpísaných dokumentov', 'Papierovanie patrí do minulosti. Rovnako ako guľaté razítko. Elektronický podpis Signi má rovnakú váhu ako ten na papieri a je právne záväzný.'],
@@ -32,6 +33,7 @@ const partners = [
   title="Elektronický podpis dokumentov | Signi"
   description="Zrýchľujeme vaše podnikanie. Online elektronické podpisovanie záväzných dokumentov a zmlúv je so Signi otázkou niekoľkých minút. Vytvárajte a podpisujte čokoľvek a kdekoľvek."
   lang="sk"
+  alternates={homeAlternates}
 >
   <section class="hero">
     <div class="container hero__inner">

@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import { homeAlternates } from '../../i18n/strings.js';
 
 const reasons = [
   ['Az aláírt dokumentumok jogi érvényessége', 'A papírmunka a múlté. Akárcsak a bélyegző. Az elektronikus aláírás a Signiben ugyanolyan hiteles, mint a papíralapú, és jogilag kötelező érvényű.'],
@@ -23,6 +24,7 @@ const features = [
   title="Digitális aláírás | Signi"
   description="A Signi minden, amire szüksége van a megállapodáshoz. Hozzon létre, hagyjon jóvá, írjon alá és archiváljon dokumentumokat digitálisan, egyetlen alkalmazásban."
   lang="hu"
+  alternates={homeAlternates}
 >
   <section class="hero">
     <div class="container hero__inner">

@@ -5,6 +5,16 @@ export const LANGS = ['cs', 'en', 'sk', 'hu'];
 
 export const homePath = { cs: '/', en: '/en/', sk: '/sk/', hu: '/hu/' };
 
+// hreflang alternates for the four language home pages. Only home pages get a
+// full set — interior pages are not 1:1 translations (see discovery).
+export const homeAlternates = [
+  { lang: 'cs', href: 'https://signi.com/' },
+  { lang: 'en', href: 'https://signi.com/en/' },
+  { lang: 'sk', href: 'https://signi.com/sk/' },
+  { lang: 'hu', href: 'https://signi.com/hu/' },
+  { lang: 'x-default', href: 'https://signi.com/' },
+];
+
 export const strings = {
   cs: {
     nav: [
