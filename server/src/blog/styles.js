@@ -22,8 +22,8 @@ export const BLOG_CSS = `
   --font-body: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 * { box-sizing: border-box; }
-body { margin: 0; font-family: var(--font-body); color: var(--body); background: #fff; line-height: 1.65; font-size: 17px; }
-h1,h2,h3,h4 { font-family: var(--font-head); color: var(--brand); line-height: 1.25; margin: 0 0 .5em; font-weight: 700; }
+body { margin: 0; font-family: var(--font-body); color: var(--body); background: #fff; line-height: 1.75; font-size: 16px; }
+h1,h2,h3,h4 { font-family: var(--font-head); color: var(--brand); line-height: 1.3; margin: 0 0 .5em; font-weight: 700; }
 h1 { font-size: clamp(2.1rem, 1.4rem + 2.9vw, 3.1rem); }
 h2 { font-size: 1.7rem; }
 h3 { font-size: 1.3rem; color: var(--ink); }
@@ -50,17 +50,17 @@ img { max-width: 100%; height: auto; }
 .brand-logo:hover { text-decoration: none; }
 .brand-logo span { color: var(--accent-dark); }
 .site-nav { display: flex; gap: 32px; margin: 0 auto; }
-.site-nav a { font-family: var(--font-head); color: var(--ink); font-weight: 600; font-size: 1rem; }
+.site-nav a { color: var(--ink); font-weight: 500; font-size: 1rem; }
 .site-nav a:hover { color: var(--brand); }
 .btn { display: inline-flex; align-items: center; padding: 13px 26px; border-radius: var(--radius-sm);
-  font-family: var(--font-head); font-weight: 600; font-size: .97rem; background: var(--brand);
+  font-weight: 500; font-size: 1rem; background: var(--brand);
   color: #fff; border: 2px solid var(--brand); box-shadow: 0 10px 22px rgba(112,49,180,.28); }
 .btn:hover { background: var(--brand-dark); border-color: var(--brand-dark); text-decoration: none; }
 
 /* Hero */
 .blog-hero { background: var(--bg-alt); padding: 72px 0 56px; }
-.eyebrow { display: inline-block; font-family: var(--font-head); font-size: .78rem; font-weight: 700;
-  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 14px; }
+.eyebrow { display: inline-block; font-size: .8rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 14px; }
 .lead { font-size: 1.15rem; color: var(--muted); }
 
 /* Category chips */
