@@ -21,7 +21,9 @@ const helpLabel = { cs: 'Nápověda', en: 'Help', sk: 'Nápoveda', hu: 'Súgó' 
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand-logo" href={url(homePath[lang])}>Signi<span>.com</span></a>
+    <a class="brand-logo" href={url(homePath[lang])}>
+      <img src={url('/img/logo.svg')} alt="Signi.com" />
+    </a>
 
     <nav class="site-nav" aria-label="Hlavní navigace">
       {t.nav.map((item) => <a href={url(item.href)}>{item.label}</a>)}

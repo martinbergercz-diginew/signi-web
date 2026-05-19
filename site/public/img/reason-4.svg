@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px" viewBox="0 0 50 50" version="1.1">
+  <title>ico/50-6duvodu-trvala</title>
+  <g id="ico/50-6duvodu-trvala" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Group-14" transform="translate(3.000000, 2.000000)" stroke="#7031B4" stroke-width="2">
+      <line x1="22.4590163" y1="42.2554041" x2="22.4590163" y2="44.9549115" id="Line-Copy-6" stroke-linecap="round" transform="translate(22.459016, 43.605158) rotate(180.000000) translate(-22.459016, -43.605158) "></line>
+      <line x1="11.9043851" y1="39.4272992" x2="11.9043851" y2="42.1268066" id="Line-Copy-7" stroke-linecap="round" transform="translate(11.904385, 40.777053) rotate(210.000000) translate(-11.904385, -40.777053) "></line>
+      <line x1="4.17785866" y1="31.7007727" x2="4.17785866" y2="34.4002801" id="Line-Copy-8" stroke-linecap="round" transform="translate(4.177859, 33.050526) rotate(240.000000) translate(-4.177859, -33.050526) "></line>
+      <path d="M8.90525523,19.0012611 C9.54878722,18.1258317 10.4996634,17.688117 11.7578837,17.688117 C13.6452142,17.688117 15.0117839,19.585664 13.1925169,21.7221168 C11.9796723,23.1464187 10.716458,24.5750165 9.40287415,26.0079103 L15.1451002,26.0079103" id="Path-45"></path>
+      <polyline id="Path-46" points="21.0723843 17.3410875 16.5535297 23.1958034 16.5535297 23.6870254 23.2891586 23.6870254"></polyline>
+      <line x1="21.0723843" y1="21.3911012" x2="21.0723843" y2="26.8498534" id="Path-47"></line>
+      <line x1="23.8456487" y1="29.3333202" x2="28.0910388" y2="14.5103153" id="Path-48"></line>
+      <polyline id="Path-49" points="29.0742014 19.8107625 29.0742014 17.936595 34.4322858 17.936595 34.4322858 18.4912834 30.4445962 26.8498534"></polyline>
+    </g>
+    <path d="M34.6974715,43.5225541 C41.7467762,40.0933759 46.6051578,32.8620033 46.6051578,24.495895 C46.6051578,12.8172037 37.1377079,3.3497537 25.4590165,3.3497537 C13.7803251,3.3497537 4.31287518,12.8172037 4.31287518,24.495895" id="Oval" stroke="#7031B4" stroke-width="2"></path>
+    <polyline id="Path-32" stroke="#7031B4" stroke-width="2" stroke-linecap="round" transform="translate(35.684754, 42.997450) rotate(146.000000) translate(-35.684754, -42.997450) " points="33.4351645 38.4982706 37.9343435 42.9974496 33.4351645 47.4966286"></polyline>
+  </g>
+</svg>

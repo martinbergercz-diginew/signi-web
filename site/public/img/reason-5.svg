@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px" viewBox="0 0 50 50" version="1.1">
+  <title>ico/50-6duvodu-naklady</title>
+  <g id="ico/50-6duvodu-naklady" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <path d="M11.7227429,13.8151812 C26.0604871,13.270445 37.0604871,17.3320512 44.7227429,26" id="Path-43" stroke="#7031B4" stroke-width="2"></path>
+    <polyline id="Path-32" stroke="#7031B4" stroke-width="2" stroke-linecap="round" transform="translate(43.500000, 25.000000) rotate(40.000000) translate(-43.500000, -25.000000) " points="41 20 46 25 41 30"></polyline>
+    <path d="M6,8 L6,36 C6,37.1045695 6.8954305,38 8,38 L48,38 L48,38" id="Path-44" stroke="#7031B4" stroke-width="2"></path>
+  </g>
+</svg>

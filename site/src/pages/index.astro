@@ -4,35 +4,49 @@ import CtaBanner from '../components/CtaBanner.astro';
 import { homeAlternates } from '../i18n/strings.js';
 import { url } from '../lib/url.js';
 
+const checklist = [
+  ['Elektronický podpis', 'Pro každý dokument máme ten správný elektronický podpis. Proto se bez obav můžete zbavit papírování.'],
+  ['Důvěryhodná archivace', 'Stejně důležité jako uzavření smlouvy je i její důvěryhodná archivace, která vám zajistí platnost po desítky let.'],
+  ['Vzdálená identifikace', 'Onboarding i uzavření smlouvy se zákazníkem je se Signi bezpečné, automatizované a hotové během pár minut.'],
+  ['Schvalovací a podpisové workflow', 'Eliminujte zbytečné čekání a zdlouhavé schvalování papírových dokumentů. Digitalizujte a zjednodušte si práci.'],
+];
+
+const trust = ['trust-1.png', 'trust-2.png', 'trust-3.png', 'trust-4.png', 'trust-5.png', 'trust-6.png'];
+
 const reasons = [
-  ['Právní závaznost podepsaných dokumentů', 'Papírování patří minulosti. Stejně jako kulaté razítko. Elektronický podpis v Signi má stejnou váhu jako ten na papíře a je právně závazný.'],
-  ['Rychlejší jednání se zákazníky a zaměstnanci', 'Kupní smlouvy, objednávky, dohody o provedení práce a desítky dalších dokumentů odbavíte online. Vaši zákazníci i zaměstnanci to ocení.'],
-  ['Jednodušší firemní administrativa', 'Digitální dokumenty nemusíte tisknout, shánět na ně podpisy, ani je skenovat již podepsané. Vše zařídíte pohodlně ze svého počítače, na pár kliknutí.'],
-  ['Trvalá kontrola nad obchodní dokumentací', 'Všechny vaše smlouvy a jiné firemní dokumenty se bezpečně ukládají na jednom místě a můžete k nim přistupovat online 24/7.'],
-  ['Nižší náklady na skladování dokumentů', 'Elektronický archiv nezatěžuje firemní kapsu, ani police ve skladu. Signi úložiště je bezpečné a přehledné. Snadno v něm hledáte i filtrujete.'],
-  ['Ekologická a finanční úspora na spotřebním materiálu', 'Každá nevytištěná stránka se počítá. Nižší spotřeba papíru a tonerů potěší vás i přírodu. Výdaje za provoz vašeho tiskového parku se citelně sníží.'],
+  ['reason-1.svg', 'Právní závaznost podepsaných dokumentů', 'Papírování patří minulosti. Stejně jako kulaté razítko. Elektronický podpis v Signi má stejnou váhu jako ten na papíře a je právně závazný.'],
+  ['reason-2.svg', 'Rychlejší jednání se zákazníky a zaměstnanci', 'Kupní smlouvy, objednávky, dohody o provedení práce a desítky dalších dokumentů odbavíte online. Vaši zákazníci i zaměstnanci to ocení.'],
+  ['reason-3.svg', 'Jednodušší firemní administrativa', 'Digitální dokumenty nemusíte tisknout, shánět na ně podpisy, ani je skenovat. Vše zařídíte pohodlně ze svého počítače, na pár kliknutí.'],
+  ['reason-4.svg', 'Trvalá kontrola nad obchodní dokumentací', 'Všechny vaše smlouvy a jiné firemní dokumenty se bezpečně ukládají na jednom místě a můžete k nim přistupovat online 24/7.'],
+  ['reason-5.svg', 'Nižší náklady na skladování dokumentů', 'Elektronický archiv nezatěžuje firemní kapsu, ani police ve skladu. Signi úložiště je bezpečné a přehledné. Snadno v něm hledáte i filtrujete.'],
+  ['reason-6.svg', 'Ekologická a finanční úspora na spotřebním materiálu', 'Každá nevytištěná stránka se počítá. Nižší spotřeba papíru a tonerů potěší vás i přírodu. Výdaje za tiskový park se citelně sníží.'],
 ];
 
 const features = [
-  ['Elektronický podpis a vzdálená identifikace na jednom zařízení', 'Digitální podpisy Signi jsou v souladu s normou eIDAS a platí v celé Evropské unii. Pro vzdálené ověřování identity používáme BankID nebo Signi identifikaci.'],
-  ['Automatizovaná workflow pro rychlejší práci s dokumenty', 'Podepisování a schvalování dokumentů probíhá na pár kliknutí. Sami si nastavíte sofistikované workflow, které podpisy, termíny i hladký průběh schvalování hlídá za vás.'],
-  ['Rychlá integrace do systémů, které již používáte', 'K propojení na vaše interní systémy nepotřebujeme dlouhé měsíce. Máme hotové API i konektory pro různé typy CRM, DMS i ERP systémů — integrujeme v řádu dnů až týdnů.'],
-  ['Bezpečné řešení pro banky, korporace i startupy', 'Vaše data jsou u nás v bezpečí. Všechny procesy monitorujeme 24/7 a pravidelně provádíme penetrační a zátěžové testy. Ručíme za ně i certifikacemi ISO 27001 a 27017.'],
-];
-
-const cases = [
-  ['QI', 'QI a digitalizace výroby s podpisem od Signi'],
-  ['Alza.cz', 'Digitální podepisování od Signi zefektivnilo administrativní procesy v Alza.cz'],
-  ['Packeta Group', 'Reklamační proces v Zásilkovně i v celé Packeta Group probíhá díky Signi plně digitálně'],
+  {
+    img: 'feature-podpis.png', rev: false,
+    title: 'Elektronický podpis a vzdálená identifikace na jednom zařízení',
+    text: 'Digitální podpisy Signi jsou v souladu s normou eIDAS a platí v celé Evropské unii. Pro vzdálené ověřování identity používáme BankID nebo Signi identifikaci.',
+  },
+  {
+    img: 'feature-workflow.png', rev: true,
+    title: 'Automatizovaná workflow pro rychlejší práci s dokumenty',
+    text: 'Podepisování a schvalování dokumentů probíhá na pár kliknutí. Sami si nastavíte sofistikované workflow, které podpisy, termíny i hladký průběh schvalování hlídá za vás.',
+  },
+  {
+    img: 'integrace.png', rev: false,
+    title: 'Rychlá integrace do systémů, které již používáte',
+    text: 'Máme hotové API i konektory pro různé typy CRM, DMS i ERP systémů — Signi integrujeme v řádu dnů až týdnů, ne měsíců.',
+  },
 ];
 
 const partners = [
-  ['Onboarding', 'Poradíme vám, jak začít s digitalizací ve vaší firmě. Od technického nastavení po proškolení zaměstnanců.'],
-  ['Péče o klienty', 'Budeme váš průvodce na cestě k digitalizaci. O digitálním podpisu víme téměř vše a rádi vám poradíme.'],
-  ['Technická podpora', 'Máte technický problém nebo požadavek? Nahlédněte do nápovědy nebo se na nás obraťte. Rádi vám poradíme.'],
-  ['Webináře', 'Pravidelně pořádáme webináře plné praktických zkušeností a novinek ze světa digitálního podepisování.'],
-  ['Případové studie', 'Inspirujte se příběhy firem, které úspěšně digitalizovaly firemní dokumenty a zbavily se administrativy.'],
-  ['Ke stažení', 'Vše důležité o digitálním podepisování. Doporučujeme náš nejstahovanější dokument 40 HR dokumentů.'],
+  ['partner-1.png', 'Onboarding', 'Poradíme vám, jak začít s digitalizací ve vaší firmě. Od technického nastavení po proškolení zaměstnanců.'],
+  ['partner-2.png', 'Péče o klienty', 'Budeme váš průvodce na cestě k digitalizaci. O digitálním podpisu víme téměř vše a rádi vám poradíme.'],
+  ['partner-3.png', 'Technická podpora', 'Máte technický problém nebo požadavek? Nahlédněte do nápovědy nebo se na nás obraťte. Rádi vám poradíme.'],
+  ['partner-4.png', 'Webináře', 'Pravidelně pořádáme webináře plné praktických zkušeností a novinek ze světa digitálního podepisování.'],
+  ['partner-5.png', 'Případové studie', 'Inspirujte se příběhy firem, které úspěšně digitalizovaly firemní dokumenty a zbavily se administrativy.'],
+  ['partner-6.png', 'Ke stažení', 'Vše důležité o digitálním podepisování. Doporučujeme náš nejstahovanější dokument 40 HR dokumentů.'],
 ];
 ---
 
@@ -46,6 +60,7 @@ const partners = [
     <div class="container hero__inner">
       <span class="eyebrow">Elektronický podpis dokumentů</span>
       <h1>Signi je vše, co potřebujete, abyste se dohodli</h1>
+      <div class="accent-underline"></div>
       <p class="lead">
         Digitalizovat můžete dnes 100 % dokumentů a procesů. Dokumenty vytvoříte,
         schválíte, podepíšete a archivujete. Vše elektronicky a v jedné aplikaci.
@@ -54,13 +69,42 @@ const partners = [
         <a class="btn btn--primary" href="https://app.signi.com/register">Vyzkoušet zdarma</a>
         <a class="btn btn--ghost" href={url('/odeslat-poptavku/')}>Domluvit prezentaci</a>
       </div>
-      <p style="margin-top:28px;color:var(--muted);font-size:.95rem">
-        Důvěřují nám lidé z více než 2 000 inovativních firem.
-      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:32px">
+    <div class="container">
+      <div class="showcase">
+        <img class="showcase__img" src={url('/img/hero.png')} alt="Aplikace Signi" width="900" height="700" />
+        <div class="checklist">
+          {checklist.map(([title, text]) => (
+            <div class="check-item">
+              <svg viewBox="0 0 28 28" aria-hidden="true">
+                <circle cx="14" cy="14" r="14" fill="#39e88d" />
+                <path d="M8 14.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="2.6"
+                      stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section section--alt">
+    <div class="container trust">
+      <p class="trust__label">Důvěřují nám lidé z více než 2 000 inovativních firem.</p>
+      <div class="logo-strip">
+        {trust.map((logo) => <img src={url(`/img/${logo}`)} alt="" loading="lazy" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container">
       <div class="section__head section__head--center">
         <span class="eyebrow">Proč Signi</span>
@@ -71,9 +115,9 @@ const partners = [
         </p>
       </div>
       <div class="grid grid--3">
-        {reasons.map(([title, text], i) => (
+        {reasons.map(([icon, title, text]) => (
           <div class="card">
-            <div class="card__icon">{i + 1}</div>
+            <div class="icon-tile"><img src={url(`/img/${icon}`)} alt="" /></div>
             <h3>{title}</h3>
             <p>{text}</p>
           </div>
@@ -82,15 +126,33 @@ const partners = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--alt">
     <div class="container">
-      <div class="section__head">
+      <div class="section__head section__head--center">
         <span class="eyebrow">Co Signi umí</span>
         <h2>Vše, co od digitálního podepisování čekáte</h2>
       </div>
-      <div class="grid grid--2">
-        {features.map(([title, text]) => (
+      {features.map((f) => (
+        <div class={f.rev ? 'feature-row feature-row--rev' : 'feature-row'}>
+          <img class="feature-row__img" src={url(`/img/${f.img}`)} alt="" loading="lazy" />
+          <div class="feature-row__text">
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <h2>Jsme vaši partneři na cestě k digitalizaci</h2>
+      </div>
+      <div class="grid grid--3">
+        {partners.map(([icon, title, text]) => (
           <div class="card">
+            <div class="icon-tile"><img src={url(`/img/${icon}`)} alt="" /></div>
             <h3>{title}</h3>
             <p>{text}</p>
           </div>
@@ -103,35 +165,26 @@ const partners = [
     <div class="container">
       <div class="section__head">
         <span class="eyebrow">Případové studie</span>
-        <h2>Články</h2>
-        <p class="lead">
-          Firmy už nechtěly mít svůj byznys zatížený zbytečnou administrativou.
-          Proto se rozhodly, že digitalizují se Signi.
-        </p>
+        <h2>Inspirujte se firmami, které už digitalizovaly</h2>
       </div>
       <div class="grid grid--3">
-        {cases.map(([tag, title]) => (
-          <div class="card">
-            <span class="eyebrow">{tag}</span>
-            <h3>{title}</h3>
+        <article class="card" style="padding:0;overflow:hidden">
+          <img src={url('/img/case-qi.png')} alt="" loading="lazy"
+               style="width:100%;aspect-ratio:2/1;object-fit:cover" />
+          <div style="padding:28px">
+            <h3>QI a digitalizace výroby s podpisem od Signi</h3>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section__head section__head--center">
-        <h2>Jsme vaši partneři na cestě k digitalizaci</h2>
-      </div>
-      <div class="grid grid--3">
-        {partners.map(([title, text]) => (
-          <div class="card">
-            <h3>{title}</h3>
-            <p>{text}</p>
+        </article>
+        <article class="card" style="padding:0;overflow:hidden">
+          <img src={url('/img/case-alza.jpg')} alt="" loading="lazy"
+               style="width:100%;aspect-ratio:2/1;object-fit:cover" />
+          <div style="padding:28px">
+            <h3>Digitální podepisování od Signi zefektivnilo procesy v Alza.cz</h3>
           </div>
-        ))}
+        </article>
+        <article class="card">
+          <h3>Reklamační proces v Zásilkovně i celé Packeta Group probíhá díky Signi plně digitálně</h3>
+        </article>
       </div>
     </div>
   </section>
