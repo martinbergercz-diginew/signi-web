@@ -228,7 +228,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .site-header__inner {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 20px;
   height: 80px;
 }
@@ -300,21 +300,72 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .site-nav {
   display: flex;
-  gap: 22px;
+  align-items: stretch;
+  gap: 26px;
   margin: 0 auto;
 }
-.site-nav a {
+.site-nav > a {
+  display: flex;
+  align-items: center;
   color: var(--ink);
   font-weight: 400;
   font-size: 1rem;
   white-space: nowrap;
 }
-.site-nav a:hover { color: var(--brand); }
+.site-nav > a:hover { color: var(--brand); }
 .header-actions { display: flex; align-items: center; gap: 10px; }
 .header-actions .btn { padding: 11px 16px; font-size: 0.9rem; }
-.lang-switch { display: flex; gap: 10px; font-size: 0.85rem; }
-.lang-switch a { color: var(--muted); font-weight: 600; }
-.lang-switch a[aria-current="true"] { color: var(--brand); }
+
+/* "Více" dropdown */
+.more-dd { position: relative; display: flex; align-items: center; }
+.more-dd__btn {
+  display: flex; align-items: center; gap: 9px;
+  background: none; border: 0; cursor: pointer; padding: 0;
+  font-family: var(--font-body); font-size: 1rem; color: var(--ink);
+  white-space: nowrap;
+}
+.more-dd__btn:hover { color: var(--brand); }
+.hamburger { display: inline-flex; flex-direction: column; gap: 3px; }
+.hamburger span { width: 19px; height: 2px; background: var(--brand); border-radius: 2px; }
+.more-dd__menu {
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  z-index: 60; background: #fff; border: 1px solid var(--line);
+  border-radius: 12px; box-shadow: var(--shadow); padding: 8px;
+  min-width: 250px; display: none;
+}
+.more-dd__menu::before { content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }
+.more-dd:hover .more-dd__menu, .more-dd:focus-within .more-dd__menu { display: block; }
+.more-dd__menu a {
+  display: block; padding: 10px 14px; border-radius: 8px;
+  color: var(--ink); font-size: 0.95rem; white-space: nowrap;
+}
+.more-dd__menu a:hover { background: var(--brand-light); color: var(--brand); text-decoration: none; }
+
+/* Language flag dropdown (topbar) */
+.lang-dd { position: relative; display: flex; align-items: center; }
+.lang-dd__btn {
+  display: flex; align-items: center; gap: 6px;
+  background: none; border: 0; cursor: pointer; padding: 4px 0; font: inherit;
+}
+.lang-dd__btn img { width: 24px; height: 16px; object-fit: cover; border-radius: 2px; display: block; }
+.caret {
+  width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+  border-top: 5px solid var(--muted);
+}
+.lang-dd__menu {
+  position: absolute; top: 100%; right: 0; z-index: 60;
+  background: #fff; border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: var(--shadow); padding: 6px; min-width: 175px; display: none;
+}
+.lang-dd__menu::before { content: ''; position: absolute; left: 0; right: 0; top: -10px; height: 10px; }
+.lang-dd:hover .lang-dd__menu, .lang-dd:focus-within .lang-dd__menu { display: block; }
+.lang-dd__menu a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px; border-radius: 7px; color: var(--ink); font-size: 0.9rem;
+}
+.lang-dd__menu a:hover { background: var(--brand-light); text-decoration: none; }
+.lang-dd__menu a[aria-current="true"] { color: var(--brand); font-weight: 600; }
+.lang-dd__menu img { width: 24px; height: 16px; object-fit: cover; border-radius: 2px; }
 
 /* Footer */
 .site-footer {

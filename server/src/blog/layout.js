@@ -20,25 +20,60 @@ export function formatDate(iso) {
   return d.toLocaleDateString('cs-CZ', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
+const FLAGS = [
+  ['/', 'flag-cz', 'Čeština', true],
+  ['/en/', 'flag-en', 'English', false],
+  ['/sk/', 'flag-sk', 'Slovenčina', false],
+  ['/hu/', 'flag-hu', 'Magyar', false],
+];
+const MORE = [
+  ['/integrace/', 'Integrace'],
+  ['/druhy-elektronickych-podpisu/', 'Druhy elektronických podpisů'],
+  ['/novela/', 'Novela zákona'],
+  ['/partneri/', 'Partneři'],
+  ['/kariera/', 'Kariéra'],
+  ['/dokumenty-ke-stazeni/', 'Dokumenty ke stažení'],
+  ['/blog/', 'Blog'],
+  ['/kontakt/', 'Kontakt'],
+];
+
 const header = `
   <div class="topbar">
     <div class="container topbar__inner">
       <a href="https://helpdesk.signi.com">Nápověda</a>
-      <span>Obchodní oddělení: +420 222 260 888</span>
-      <span>Podpora: help@signi.com</span>
+      <span class="topbar__sep">Obchodní oddělení: +420 222 260 888</span>
+      <span class="topbar__sep">Podpora: help@signi.com</span>
       <a href="https://app.signi.com/login">Přihlášení</a>
+      <div class="lang-dd">
+        <button class="lang-dd__btn" type="button" aria-label="Jazyk">
+          <img src="${p('/img/flag-cz.svg')}" alt="CS" /><span class="caret"></span>
+        </button>
+        <div class="lang-dd__menu">
+          ${FLAGS.map(([href, flag, name, cur]) => `<a href="${p(href)}"${cur ? ' aria-current="true"' : ''}><img src="${p(`/img/${flag}.svg`)}" alt="" /><span>${name}</span></a>`).join('')}
+        </div>
+      </div>
     </div>
   </div>
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="brand-logo" href="${p('/')}">Signi<span>.com</span></a>
+      <a class="brand-logo" href="${p('/')}"><img src="${p('/img/logo.svg')}" alt="Signi.com" /></a>
       <nav class="site-nav" aria-label="Hlavní navigace">
         <a href="${p('/produkt/')}">Produkt</a>
-        <a href="${p('/pro-firmy/')}">Řešení pro firmy</a>
         <a href="${p('/cenik/')}">Ceník</a>
-        <a href="${p('/blog/')}">Blog</a>
+        <a href="${p('/pro-firmy/')}">Řešení pro firmy</a>
+        <div class="more-dd">
+          <button class="more-dd__btn" type="button" aria-haspopup="true">
+            <span>Více</span><span class="hamburger"><span></span><span></span><span></span></span>
+          </button>
+          <div class="more-dd__menu">
+            ${MORE.map(([href, label]) => `<a href="${p(href)}">${label}</a>`).join('')}
+          </div>
+        </div>
       </nav>
-      <a class="btn" href="${p('/odeslat-poptavku/')}">Domluvit prezentaci</a>
+      <div class="header-actions">
+        <a class="btn btn--ghost" href="${p('/odeslat-poptavku/')}">Domluvit prezentaci</a>
+        <a class="btn" href="https://app.signi.com/register">Vyzkoušet zdarma</a>
+      </div>
     </div>
   </header>`;
 

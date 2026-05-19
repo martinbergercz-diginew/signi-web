@@ -8,14 +8,31 @@ interface Props {
 const { lang = 'cs' } = Astro.props;
 const t = strings[lang] ?? strings.cs;
 const helpLabel = { cs: 'Nápověda', en: 'Help', sk: 'Nápoveda', hu: 'Súgó' }[lang] ?? 'Nápověda';
+const flagFile = { cs: 'flag-cz', en: 'flag-en', sk: 'flag-sk', hu: 'flag-hu' };
+const langName = { cs: 'Čeština', en: 'English', sk: 'Slovenčina', hu: 'Magyar' };
 ---
 
 <div class="topbar">
   <div class="container topbar__inner">
     <a href="https://helpdesk.signi.com">{helpLabel}</a>
-    <span>Obchodní oddělení: +420 222 260 888</span>
-    <span>Podpora: help@signi.com</span>
+    <span class="topbar__sep">Obchodní oddělení: +420 222 260 888</span>
+    <span class="topbar__sep">Podpora: help@signi.com</span>
     <a href={url(t.login.href)}>{t.login.label}</a>
+
+    <div class="lang-dd">
+      <button class="lang-dd__btn" type="button" aria-haspopup="true" aria-label="Jazyk">
+        <img src={url(`/img/${flagFile[lang]}.svg`)} alt={lang.toUpperCase()} />
+        <span class="caret" aria-hidden="true"></span>
+      </button>
+      <div class="lang-dd__menu">
+        {LANGS.map((l) => (
+          <a href={url(homePath[l])} aria-current={l === lang ? 'true' : 'false'}>
+            <img src={url(`/img/${flagFile[l]}.svg`)} alt="" />
+            <span>{langName[l]}</span>
+          </a>
+        ))}
+      </div>
+    </div>
   </div>
 </div>
 
@@ -27,16 +44,20 @@ const helpLabel = { cs: 'Nápověda', en: 'Help', sk: 'Nápoveda', hu: 'Súgó' 
 
     <nav class="site-nav" aria-label="Hlavní navigace">
       {t.nav.map((item) => <a href={url(item.href)}>{item.label}</a>)}
+      {t.more && t.more.length > 0 && (
+        <div class="more-dd">
+          <button class="more-dd__btn" type="button" aria-haspopup="true">
+            <span>{t.moreLabel}</span>
+            <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+          </button>
+          <div class="more-dd__menu">
+            {t.more.map((item) => <a href={url(item.href)}>{item.label}</a>)}
+          </div>
+        </div>
+      )}
     </nav>
 
     <div class="header-actions">
-      <div class="lang-switch" aria-label="Jazyk">
-        {LANGS.map((l) => (
-          <a href={url(homePath[l])} aria-current={l === lang ? 'true' : 'false'}>
-            {l.toUpperCase()}
-          </a>
-        ))}
-      </div>
       <a class="btn btn--ghost" href={url(t.ctaDemo.href)}>{t.ctaDemo.label}</a>
       <a class="btn btn--primary" href={url(t.ctaTry.href)}>{t.ctaTry.label}</a>
     </div>

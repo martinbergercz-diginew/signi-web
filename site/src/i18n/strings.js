@@ -20,10 +20,19 @@ export const strings = {
   cs: {
     nav: [
       { label: 'Produkt', href: '/produkt/' },
-      { label: 'Řešení pro firmy', href: '/pro-firmy/' },
       { label: 'Ceník', href: '/cenik/' },
+      { label: 'Řešení pro firmy', href: '/pro-firmy/' },
+    ],
+    moreLabel: 'Více',
+    more: [
       { label: 'Integrace', href: '/integrace/' },
+      { label: 'Druhy elektronických podpisů', href: '/druhy-elektronickych-podpisu/' },
+      { label: 'Novela zákona', href: '/novela/' },
+      { label: 'Partneři', href: '/partneri/' },
+      { label: 'Kariéra', href: '/kariera/' },
+      { label: 'Dokumenty ke stažení', href: '/dokumenty-ke-stazeni/' },
       { label: 'Blog', href: '/blog/' },
+      { label: 'Kontakt', href: '/kontakt/' },
     ],
     ctaDemo: { label: 'Domluvit prezentaci', href: '/odeslat-poptavku/' },
     ctaTry: { label: 'Vyzkoušet zdarma', href: 'https://app.signi.com/register' },
@@ -74,9 +83,16 @@ export const strings = {
   en: {
     nav: [
       { label: 'Product', href: '/en/product/' },
-      { label: 'For companies', href: '/en/for-companies/' },
       { label: 'Pricing', href: '/en/pricing/' },
+      { label: 'For companies', href: '/en/for-companies/' },
+    ],
+    moreLabel: 'More',
+    more: [
+      { label: 'Security', href: '/en/security/' },
       { label: 'Partners', href: '/en/partners/' },
+      { label: 'Career', href: '/en/career/' },
+      { label: 'About us', href: '/en/about-us/' },
+      { label: 'Contact', href: '/en/contact/' },
       { label: 'Blog', href: '/en/blog-2/' },
     ],
     ctaDemo: { label: 'Request a demo', href: '/en/request-demo/' },
@@ -130,6 +146,8 @@ export const strings = {
       { label: 'Cenník', href: '/sk/cennik/' },
       { label: 'Kariéra', href: '/sk/vasa-kariera/' },
     ],
+    moreLabel: 'Viac',
+    more: [],
     ctaDemo: { label: 'Dohodnúť prezentáciu', href: '/sk/' },
     ctaTry: { label: 'Vyskúšať zadarmo', href: 'https://app.signi.com/register' },
     login: { label: 'Prihlásenie', href: 'https://app.signi.com/login' },
@@ -159,6 +177,8 @@ export const strings = {
 
   hu: {
     nav: [],
+    moreLabel: 'Több',
+    more: [],
     ctaDemo: { label: 'Bemutató igénylése', href: '/hu/' },
     ctaTry: { label: 'Ingyenes kipróbálás', href: 'https://app.signi.com/register' },
     login: { label: 'Bejelentkezés', href: 'https://app.signi.com/login' },

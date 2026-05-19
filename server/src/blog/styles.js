@@ -44,18 +44,50 @@ img { max-width: 100%; height: auto; }
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.97);
   backdrop-filter: saturate(160%) blur(8px); border-bottom: 1px solid var(--line); }
-.site-header__inner { display: flex; align-items: center; gap: 32px; height: 80px; }
-.brand-logo { font-family: var(--font-head); font-weight: 800; font-size: 1.55rem;
-  color: var(--brand); letter-spacing: -.02em; }
+.site-header__inner { display: flex; align-items: stretch; gap: 20px; height: 80px; }
+.brand-logo { display: flex; align-items: center; }
 .brand-logo:hover { text-decoration: none; }
-.brand-logo span { color: var(--accent-dark); }
-.site-nav { display: flex; gap: 32px; margin: 0 auto; }
-.site-nav a { color: var(--ink); font-weight: 400; font-size: 1rem; }
-.site-nav a:hover { color: var(--brand); }
+.brand-logo img { height: 34px; width: auto; display: block; }
+.site-nav { display: flex; align-items: stretch; gap: 26px; margin: 0 auto; }
+.site-nav > a { display: flex; align-items: center; color: var(--ink); font-weight: 400; font-size: 1rem; white-space: nowrap; }
+.site-nav > a:hover { color: var(--brand); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.header-actions .btn { padding: 11px 16px; font-size: .9rem; }
 .btn { display: inline-flex; align-items: center; padding: 13px 26px; border-radius: var(--radius-sm);
   font-weight: 400; font-size: 1rem; background: var(--brand);
-  color: #fff; border: 2px solid var(--brand); box-shadow: 0 10px 22px rgba(112,49,180,.28); }
+  color: #fff; border: 2px solid var(--brand); box-shadow: 0 10px 22px rgba(112,49,180,.28); white-space: nowrap; }
 .btn:hover { background: var(--brand-dark); border-color: var(--brand-dark); text-decoration: none; }
+.btn--ghost { background: #fff; color: var(--brand); box-shadow: none; }
+.btn--ghost:hover { background: var(--brand-light); color: var(--brand); }
+
+/* "Více" dropdown */
+.more-dd { position: relative; display: flex; align-items: center; }
+.more-dd__btn { display: flex; align-items: center; gap: 9px; background: none; border: 0;
+  cursor: pointer; padding: 0; font-family: var(--font-body); font-size: 1rem; color: var(--ink); white-space: nowrap; }
+.more-dd__btn:hover { color: var(--brand); }
+.hamburger { display: inline-flex; flex-direction: column; gap: 3px; }
+.hamburger span { width: 19px; height: 2px; background: var(--brand); border-radius: 2px; }
+.more-dd__menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); z-index: 60;
+  background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 18px 40px rgba(48,51,52,.12);
+  padding: 8px; min-width: 250px; display: none; }
+.more-dd__menu::before { content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }
+.more-dd:hover .more-dd__menu, .more-dd:focus-within .more-dd__menu { display: block; }
+.more-dd__menu a { display: block; padding: 10px 14px; border-radius: 8px; color: var(--ink); font-size: .95rem; white-space: nowrap; }
+.more-dd__menu a:hover { background: var(--brand-light); color: var(--brand); text-decoration: none; }
+
+/* Language flag dropdown */
+.lang-dd { position: relative; display: flex; align-items: center; }
+.lang-dd__btn { display: flex; align-items: center; gap: 6px; background: none; border: 0; cursor: pointer; padding: 4px 0; }
+.lang-dd__btn img { width: 24px; height: 16px; object-fit: cover; border-radius: 2px; display: block; }
+.caret { width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid var(--muted); }
+.lang-dd__menu { position: absolute; top: 100%; right: 0; z-index: 60; background: #fff; border: 1px solid var(--line);
+  border-radius: 10px; box-shadow: 0 18px 40px rgba(48,51,52,.12); padding: 6px; min-width: 175px; display: none; }
+.lang-dd__menu::before { content: ''; position: absolute; left: 0; right: 0; top: -10px; height: 10px; }
+.lang-dd:hover .lang-dd__menu, .lang-dd:focus-within .lang-dd__menu { display: block; }
+.lang-dd__menu a { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 7px; color: var(--ink); font-size: .9rem; }
+.lang-dd__menu a:hover { background: var(--brand-light); text-decoration: none; }
+.lang-dd__menu a[aria-current="true"] { color: var(--brand); font-weight: 600; }
+.lang-dd__menu img { width: 24px; height: 16px; object-fit: cover; border-radius: 2px; }
 
 /* Hero */
 .blog-hero { background: var(--bg-alt); padding: 72px 0 56px; }
